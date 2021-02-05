@@ -57,15 +57,15 @@ Last Modified: 5/6/2019
 	
 	nav a:hover {
     background-color: #fef9ff;
-    color: #5b7d87; 
+    color: #5b7d87;
 	}
 	
 	nav a:active {
     font-weight: bold;
 	}
 	
-	nav a:visited {
-    color: #e4c3ad; 
-	}
+	/*nav a:visited {
+    color: #e4c3ad;
+	}*/
 	
 	
