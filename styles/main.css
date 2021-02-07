@@ -13,7 +13,7 @@ Last Modified: 5/6/2019
 	}
 	
 	header {
-		background-color: #5b7d87;
+		background-color: white;
 		color: #fef9ff;
 		height: 100px; 
 		text-align: center;
@@ -25,13 +25,13 @@ Last Modified: 5/6/2019
 	}
 	
 	nav {
-		border-top: 3px dashed #546a7b;
-		border-bottom: 3px dashed #546a7b;
+		border-top: 3px dashed white;
+		border-bottom: 3px dashed white;
 		margin-top: 4px; 
 	}
 	
 	header, footer {
-		background-color: #546a7b;
+		background-color: #e4c3ad;
 		color: #fef9ff;
 		height: 100px; 
 		text-align: center;
@@ -39,10 +39,10 @@ Last Modified: 5/6/2019
 	}
 
 	nav a {
-		background-color: #5b7d87;
-		color:  #fef9ff;
+		
+		color: blueviolet;
 		padding: 8px;
-		border: thin solid #0d1f2d;
+		
 		text-decoration: none;
 		text-align: center;
 		display: block;
