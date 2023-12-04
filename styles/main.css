@@ -31,8 +31,8 @@ Last Modified: 5/6/2019
 	}
 	
 	header, footer {
-		/* background-color: #e4c3ad; */
-		/* color: #fef9ff; */
+		background-color: thistle;
+		color: #fef9ff;
 		height: 100px; 
 		text-align: center;
 		padding: 30px 10px 20px 10px;
