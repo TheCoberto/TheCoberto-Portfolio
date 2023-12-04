@@ -1,58 +1,143 @@
 <!DOCTYPE html>
-<html>
-    
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>TheCoberto Homepage</title>
-        <link rel="shortcut icon" href="DSC_0945.JPG" />
-        <meta name="description" content="An interactive getting started guide for Brackets.">
-        
-        <link rel="stylesheet" type="text/css" href="index.css">
-        
-    </head>
-    <body style="background-color: thistle">
-        <nav>
-        <hr />
-			<p style="color: cyan; font-size: 50px; font-family:'Courier New';"><a href="coberto.html">Videos</a></p>
 
-            <p style="color: cyan; font-size: 50px; font-family:'Courier New';" ><a href="castafray.html">Music</a></p>
+<html lang="en"> 
+<head> 
+    <title>TheCoberto</title>
+	<link  href="styles/main.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="DSC_0945.JPG" />
+    <style>
+        caption {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 8px;
+        }
 
-            <p style="color: cyan; font-size: 50px; font-family:'Courier New';"><a href="applications.html">Mods</a></p>
-			
-			<p style="color: cyan; font-size: 50px; font-family:'Courier New';"><a href="spookurStudios.html">Programming</a></p>
-            
-            <p style="color: cyan; font-size: 50px; font-family:'Courier New';"><a href="qroppd1.html">Photography</a></p>
-            
-            <p style="color: cyan; font-size: 50px; font-family:'Courier New';"><a href="portfolio.html">Portfolio</a></p>
-            
-            
-            
-        <hr />
-        </nav>
-        
-    </body>
-	<footer><center></center></footer>
-</html>
-<!--
+        table, th, td {
+            border: 1px solid #0d1f2d;
+            border-collapse: collapse;
+            padding: 5px 10px;
+        }
 
-    [[[[[[[[[[[[[[[      ]]]]]]]]]]]]]]]
-    [::::::::::::::      ::::::::::::::]
-    [::::::::::::::      ::::::::::::::]
-    [::::::[[[[[[[:      :]]]]]]]::::::]
-    [:::::[                      ]:::::]
-    [:::::[                      ]:::::]
-    [:::::[                      ]:::::]
-    [:::::[                      ]:::::]
-    [:::::[     CODE THE WEB     ]:::::]
-    [:::::[  http://brackets.io  ]:::::]
-    [:::::[                      ]:::::]
-    [:::::[                      ]:::::]
-    [:::::[                      ]:::::]
-    [:::::[                      ]:::::]
-    [::::::[[[[[[[:      :]]]]]]]::::::]
-    [::::::::::::::      ::::::::::::::]
-    [::::::::::::::      ::::::::::::::]
-    [[[[[[[[[[[[[[[      ]]]]]]]]]]]]]]]
+        table {
+            width: 70%;
+            margin: auto;
+        }
 
--->
+        tr {
+            height: 30px;
+        }
+
+        th {
+            background-color: blueviolet; 
+            color: #f2eded;
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: #e4c3ad; 
+        }
+
+        article img {
+            float:left;
+        }
+
+        .right-content {
+            float:left;
+        }
+
+        article {
+            margin-bottom: 16px;
+        }
+
+    </style>
+</head> 
+    <body style="background-color:thistle">
+        <main> <!-- The main element contains all blocks on the page -->
+            <header> <!-- The header element contains only the main title at this point. -->
+                <h1 style="color: blueviolet; font-size: 40px; font-family:'Courier New';">About Me</h1>
+            </header>
+            <nav> <!-- The nav element will include navigation buttons or links -->
+                <p style="color: blueviolet; font-size: 60px; font-family:'Courier New';"><a href="coberto.html">Videos</a></p>
+				<p style="color: blueviolet; font-size: 60px; font-family:'Courier New';" ><a href="castafray.html">Music</a></p>
+				<p style="color: blueviolet; font-size: 60px; font-family:'Courier New';" ><a href="applications.html">Mods</a></p>
+				<p style="color: blueviolet; font-size: 60px; font-family:'Courier New';" ><a href="qroppd1.html">Photography</a></p>
+                <a style="right:auto" download="williamKellyResume" href="williamKellyResume.pdf" download="newfilename">Download Resume</a>
+				<div class="clear-float">
+                    <p>
+                        Hello, I am Coby. I am a programmer, content creator, video gamer, and tech geek. I am a certified full-stack developer. I currently work as an application developer at a home solutions company. I like to make video content and mods in my free time.
+                    </p>
+                </div>
+            </nav>
+            <section> <!-- The section element contains the three chunks we are using to sell ourselves in this page. -->
+                <article id="about"> <!-- This is the first chunk inside the section element. -->
+                      <img style="align-items: center;" src="images/DALL·E creepy gaming.png" alt="Picture of Me" width="300">
+                <div class="clear-float" ></div>
+                </article>
+
+                <!-- <article id="experience"> 
+                    <h2><em>Past Experiences</em></h2> 
+                   <img src="images/hyde.JPG" width="300">
+                    <p>As a shy and young child, I spent a lot of my time on the computer and developed a liking for technology. In my teens, I quickly learned skills such as graphic design, commentary, editing, and computer building. I've worked in the Retail, Restaurant, and Logistics businesses. Currently, I am a student at The Software Guild.</p>
+                    <div class="clear-float"></div>
+                </article>
+                
+                <article id="hobbies">
+                    <h2><em>Hobbies</em></h2>
+                    <img src="images/rapper.JPG"
+                         style="width: 300px" />
+                    <p>I've always been the type of person to juggle different hobbies. One of my favorite pastimes is creating video content about mysterious and lost media. I do the script writing, editing, commentary, and graphics for each video. I also enjoy sound engineering, mastering, and creating Electronic Music. Playing Poker, whether with friends or random people is extremely fun. I've also held, and dealt my own games, including a few charity poker tournaments with my dad.  </p>
+                    <div class="clear-float"></div>
+                </article> -->
+            </section>
+            
+<!-- <section>
+<table>
+	<caption>Employment History</caption>
+    <thead>
+	<tr>
+		<th><b>Dates</b></th>
+		<th><b>Title</b></th>
+		<th><b>Company</b></th>
+	</tr>
+
+	</thead>
+	<tbody>
+	<tr>
+		<td>April 2019-Present</td>
+		<td>Apprentice</td>
+		<td>The Software Guild</td>
+	</tr>
+	
+	<tr>
+		<td>June 2018-Present</td>
+		<td>Jumper</td>
+		<td>FedEx Ground</td>
+	</tr>
+	<tr>
+		<td>January 2017-June 2019</td>
+		<td>Cook</td>
+		<td>Nou Veau</td>
+	</tr>
+	<tr>
+		<td>June 2017-June 2018</td>
+		<td>Server</td>
+		<td>Brim Brewery</td>
+	</tr>
+	<tr>
+		<td>September 2016-June 2018</td>
+		<td>Student
+		<td>Lakeland Community College</td>
+	</tr>
+	<tr>
+		<td>October 2014-December 2016</td>
+		<td>Clerk</td>
+		<td>Malley's Chocolates</td>
+	</tr>
+	</tbody>
+</table>
+</section> -->
+<!-- 
+<footer>
+<hr />
+</footer>
+        </main>
+</html> -->
