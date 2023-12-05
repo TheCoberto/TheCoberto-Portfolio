@@ -57,7 +57,6 @@ Last Modified: 5/6/2019
     }
 	
 	nav a:hover {
-    /* background-color: #fef9ff; */
     color: #5b7d87;
 	}
 	
@@ -65,13 +64,51 @@ Last Modified: 5/6/2019
     font-weight: bold;
 	}
 	
-	/*nav a:visited {
-    color: #e4c3ad;
-	}*/
-	
 	.center {
 		display: block;
 		margin-left: auto;
 		margin-right: auto;
 		width: 50%;
 	  }
+
+	  caption {
+		font-weight: bold;
+		font-size: 1.2em;
+		margin-bottom: 8px;
+	}
+
+	table, th, td {
+		border: 1px solid #0d1f2d;
+		border-collapse: collapse;
+		padding: 5px 10px;
+	}
+
+	table {
+		width: 70%;
+		margin: auto;
+	}
+
+	tr {
+		height: 30px;
+	}
+
+	th {
+		background-color: blueviolet; 
+		color: #f2eded;
+	}
+
+	tbody tr:nth-child(odd) {
+		background-color: #e4c3ad; 
+	}
+
+	article img {
+		float:center;
+	}
+
+	.right-content {
+		float:center;
+	}
+
+	article {
+		margin-bottom: 16px;
+	}
