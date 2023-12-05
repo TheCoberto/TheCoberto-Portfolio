@@ -42,14 +42,12 @@ Last Modified: 5/6/2019
 		
 		color: blueviolet;
 		padding: 8px;
-		font-size: 2.0em;
-		size: 2.0em;
 		text-decoration: none;
 		text-align: center;
 		display: block;
 		margin: 20px;
 		width: 100px;
-		float: center;
+		float: left;
 	}
 	
 	.clear-float {
@@ -57,7 +55,7 @@ Last Modified: 5/6/2019
     }
 	
 	nav a:hover {
-    /* background-color: #fef9ff; */
+    background-color: #fef9ff;
     color: #5b7d87;
 	}
 	
@@ -68,3 +66,5 @@ Last Modified: 5/6/2019
 	/*nav a:visited {
     color: #e4c3ad;
 	}*/
+	
+	
