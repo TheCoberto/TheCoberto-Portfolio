@@ -49,7 +49,7 @@ Last Modified: 5/6/2019
 		display: block;
 		margin: 20px;
 		width: 100px;
-		float: left;
+		/* float: left; */
 	}
 	
 	.clear-float {
@@ -69,4 +69,9 @@ Last Modified: 5/6/2019
     color: #e4c3ad;
 	}*/
 	
-	
+	.center {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		width: 50%;
+	  }
