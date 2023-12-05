@@ -1,4 +1,0 @@
-The purpose of this assessment is to show your proficiency in developing database objects and interacting with them using the C# database access techniques of ADO .NET and Entity Framework.  You will expose your database interactions through an ASP .NET Web API project.
-
-Update: I have deployed the app online.  See below.
-http://dvd-library-app.apphb.com/
