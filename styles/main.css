@@ -45,11 +45,14 @@ Last Modified: 5/6/2019
     }
 	
 	nav a:hover {
-    color: #5b7d87;
+    	color: #5b7d87;
+		background-color: lightyellow;
 	}
 	
 	nav a:active {
-    font-weight: bold;
+		font-weight: bold;
+		color:blueviolet;
+		font-weight: lighter;
 	}
 
 	caption {
@@ -92,4 +95,13 @@ Last Modified: 5/6/2019
 
 	article {
 		margin-bottom: 16px;
+	}
+	
+	nav a:visited {
+		color: blueviolet; 
+	}
+
+	nav a:link {
+		color: blueviolet;
+		text-decoration: none;
 	}
