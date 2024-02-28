@@ -1,112 +1,106 @@
-/*
-creator: William Kelly
-Date Created: 5/6/2019
-Last Modified: 5/6/2019
-*/
-
 	body {
-		background-color: rgb(12, 13, 15); 
-		font-family: arial, helvetica, sans-serif;
-		margin: 0 auto;
+	background-color: rgb(12, 13, 15); 
+	font-family: arial, helvetica, sans-serif;
+	margin: 0 auto;
 	}
-	
+
 	header {
-		height: 100px; 
-		text-align: center;
-		padding: 30px 10px 20px 10px;
+	height: 100px; 
+	text-align: center;
+	padding: 30px 10px 20px 10px;
 	}
-	
+
 	h1 {
-		color: rgb(200, 146, 249);
-		font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-		font-size: 1.5em;
+	color: rgb(200, 146, 249);
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	font-size: 1.5em;
 	}
-	
+
 	header, footer {
-		height: 100px; 
-		text-align: center;
-		padding: 30px 10px 20px 10px;
+	height: 100px; 
+	text-align: center;
+	padding: 30px 10px 20px 10px;
 	}
 
 	nav a {
-		color: rgb(200, 146, 249);
-		padding: 6px;
-		font-size: 2.5em;
-		font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-		size: 2.5em;
-		text-decoration: none;
-		margin: 15px;
+	color: rgb(200, 146, 249);
+	padding: 6px;
+	font-size: 2.5em;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	size: 2.5em;
+	text-decoration: none;
+	margin: 15px;
 	}
-	
+
 	.clear-float {
-            clear:both;
-    }
-	
-	nav a:hover {
-    	color: #5b7d87;
-		background-color: lightyellow;
+		clear:both;
 	}
-	
+
+	nav a:hover {
+	color: #5b7d87;
+	background-color: lightyellow;
+	}
+
 	nav a:active {
-		font-weight: bold;
-		color:blueviolet;
-		font-weight: lighter;
+	font-weight: bold;
+	color:blueviolet;
+	font-weight: lighter;
 	}
 
 	caption {
-		font-weight: bold;
-		font-size: 1.2em;
-		margin-bottom: 8px;
+	font-weight: bold;
+	font-size: 1.2em;
+	margin-bottom: 8px;
 	}
 
 	table, th, td {
-		border: 1px solid #0d1f2d;
-		border-collapse: collapse;
-		padding: 5px 10px;
+	border: 1px solid #0d1f2d;
+	border-collapse: collapse;
+	padding: 5px 10px;
 	}
 
 	table {
-		width: 70%;
-		margin: auto;
+	width: 70%;
+	margin: auto;
 	}
 
 	tr {
-		height: 30px;
+	height: 30px;
 	}
 
 	th {
-		background-color: rgb(198, 143, 249); 
-		color: #f2eded;
+	background-color: rgb(198, 143, 249); 
+	color: #f2eded;
 	}
 
 	tbody tr:nth-child(odd) {
-		background-color: #e4c3ad; 
+	background-color: #e4c3ad; 
 	}
 
 	article img {
-		float:center;
+	float:center;
 	}
 
 	.right-content {
-		float:center;
+	float:center;
 	}
 
 	article {
-		margin-bottom: 16px;
+	margin-bottom: 16px;
 	}
-	
+
 	nav a:visited {
-		
+
 	}
 
 	nav a:link {
-		color: rgb(200, 146, 249);
-		text-decoration: none;
+	color: rgb(200, 146, 249);
+	text-decoration: none;
 	}
 
 	p {
-		color: rgb(200, 146, 249);;
-		font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-		margin: 15px;
-		padding: 6px;
+	color: rgb(200, 146, 249);;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	margin: 15px;
+	padding: 6px;
 	}
