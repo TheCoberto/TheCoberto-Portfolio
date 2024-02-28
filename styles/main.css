@@ -17,9 +17,9 @@ Last Modified: 5/6/2019
 	}
 	
 	h1 {
-		color: #ffb0f2;
+		color: rgb(200, 146, 249);
 		font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-		font-size: 2.5em;
+		font-size: 1.5em;
 	}
 	
 	header, footer {
@@ -29,7 +29,7 @@ Last Modified: 5/6/2019
 	}
 
 	nav a {
-		color: rgb(211, 164, 255);
+		color: rgb(200, 146, 249);
 		padding: 6px;
 		font-size: 2.5em;
 		font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -105,7 +105,7 @@ Last Modified: 5/6/2019
 	}
 
 	p {
-		color:rgb(255, 169, 252);
+		color: rgb(200, 146, 249);;
 		font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 		margin: 15px;
 		padding: 6px;
