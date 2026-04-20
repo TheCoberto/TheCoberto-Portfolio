@@ -86,8 +86,17 @@ hr {
 
 /* Top nav (back button style) */
 .top-nav {
-    text-align: left;
-    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    padding: 14px 10px;
+
+    background: rgba(12, 13, 15, 0.85);
+    backdrop-filter: blur(6px);
+
+    border-bottom: 1px solid rgba(200, 146, 249, 0.2);
+
+    flex-wrap: wrap; /* KEY FIX */
 }
 
 .top-nav a {
@@ -262,4 +271,150 @@ header h1 {
 .brand.crobus {
     color: #ffffff;
     text-shadow: 0 0 8px rgba(200,146,249,0.7);
+}
+
+/* HEADER */
+.os-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.os-header h1 {
+    font-size: 2.2rem;
+    text-shadow: 0 0 12px rgba(200,146,249,0.5);
+}
+
+.os-header .site-status {
+    font-size: 0.85rem;
+    opacity: 0.6;
+}
+
+/* GRID (desktop-like layout) */
+.os-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+}
+
+/* OS CARDS (app icons feel) */
+.os-card {
+    display: block;
+    padding: 16px;
+    border-radius: 12px;
+
+    text-decoration: none;
+    color: rgb(200,146,249);
+
+    border: 1px solid rgba(200,146,249,0.25);
+    background: rgba(255,255,255,0.02);
+
+    transition: 0.25s ease;
+}
+
+/* Title line */
+.os-card {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* Subtitle */
+.os-card span {
+    display: block;
+    font-size: 0.85rem;
+    opacity: 0.6;
+    margin-top: 6px;
+}
+
+/* Hover = "app opening" feel */
+.os-card:hover {
+    transform: translateY(-3px);
+    background: rgba(200,146,249,0.08);
+    box-shadow: 0 0 16px rgba(200,146,249,0.4);
+}
+
+.os-about {
+    max-width: 700px;
+    margin: 12px auto 0;
+    font-size: 0.95rem;
+    opacity: 0.75;
+    line-height: 1.5;
+}
+
+/* make status feel like system label */
+.site-status {
+    font-size: 0.85rem;
+    opacity: 0.6;
+    margin-top: 6px;
+}
+
+.os-header {
+    border: 1px solid rgba(200,146,249,0.2);
+    padding: 20px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.02);
+}
+
+/* FULL SCREEN BOOT OVERLAY */
+#boot-screen {
+    position: fixed;
+    inset: 0;
+    background: #0c0d0f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+
+    animation: bootFadeOut 0.6s ease forwards;
+    animation-delay: 2.2s;
+}
+
+/* boot text container */
+.boot-content {
+    text-align: center;
+    color: rgb(200,146,249);
+    font-family: monospace;
+}
+
+/* title */
+.boot-title {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(200,146,249,0.5);
+}
+
+/* blinking lines */
+.boot-text {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    animation: blink 1s infinite;
+}
+
+/* fade out animation */
+@keyframes bootFadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* blinking effect */
+@keyframes blink {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+}
+
+@media (max-width: 600px) {
+    .top-nav {
+        justify-content: flex-start;
+        overflow-x: auto;
+        white-space: nowrap;
+        flex-wrap: nowrap;
+    }
+
+    .top-nav a {
+        font-size: 0.85rem;
+        padding: 6px 8px;
+		flex: 0 0 auto;
+    }
 }
