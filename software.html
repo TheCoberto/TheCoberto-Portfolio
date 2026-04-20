@@ -1,35 +1,68 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Software</title>
-        <meta name="description" content="An interactive getting started guide for Brackets.">
-        <link rel="icon" type="image/x-icon" href="images/mascot.png" />
-        <link rel="stylesheet" href="styles/main.css">
-    </head>
-    <body>
-        <nav>
-            <hr />
-            <a href="index.html">Home</a>
-            <hr />
-            <div> <!--style="text-align: center;"-->
-                <nav>
-                    <p>
-                       Check out some apps, games, and mods!
-                    </p>
-                    <a href="apps.html">Apps</a>
-                    <a href="games.html">Games</a>
-                    <a href="mods.html">Mods</a>
-                </nav>
-                <hr>
-            </div>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Software</title>
+    <meta name="description" content="Apps, games, and mods by TheCoberto">
+    <link rel="icon" type="image/x-icon" href="images/mascot.png" />
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+    <nav class="top-nav">
+        <a href="index.html">Home</a>
+        <a href="videos.html">Videos</a>
+        <a href="music.html">Music</a>
+        <a href="software.html">Software</a>
+        <a href="photography.html">Photos</a>
+        <a href="discord.html">Discord</a>
+    </nav>
+    <main class="container">
+
+        <header>
+            <h1>Software</h1>
+        </header>
+
+        <!-- Intro -->
+        <section class="about">
+            <p>
+                Check out some apps, games, and mods!
+            </p>
+        </section>
+
+        <!-- Internal navigation (apps/games/mods) -->
+        <section class="links">
+            <a class="card-link" href="apps.html">
+                🧩 Apps
+            </a>
+
+            <a class="card-link" href="games.html">
+                🎮 Games
+            </a>
+
+            <a class="card-link" href="mods.html">
+                ⚙️ Mods
+            </a>
+        </section>
+
+        <!-- External links -->
+        <section class="about">
             <p>
                 My software repositories are available on GitHub. This includes applications and mods that I have created.
             </p>
-            <a href="https://github.com/TheCoberto">GitHub</a>
-            <a href="https://mcpedl.com/user/thecoberto/">MCPEDL</a>
-            <hr />
-        </nav>
-    </body>
+        </section>
+
+        <section class="links">
+            <a class="card-link" href="https://github.com/TheCoberto" target="_blank">
+                💻 GitHub
+            </a>
+
+            <a class="card-link" href="https://mcpedl.com/user/thecoberto/" target="_blank">
+                🌐 MCPEDL
+            </a>
+        </section>
+
+        <hr>
+    </main>
+</body>
 </html>

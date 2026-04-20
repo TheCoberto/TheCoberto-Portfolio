@@ -1,106 +1,265 @@
-	body {
-	background-color: rgb(12, 13, 15); 
-	font-family: arial, helvetica, sans-serif;
-	margin: 0 auto;
-	}
+/* Reset / base */
+* {
+    box-sizing: border-box;
+}
 
-	header {
-	height: 100px; 
-	text-align: center;
-	padding: 30px 10px 20px 10px;
-	}
+body {
+    background: linear-gradient(180deg, #0c0d0f, #14161b);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    color: rgb(200, 146, 249);
+}
 
-	h1 {
-	color: rgb(200, 146, 249);
-	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-	font-size: 1.5em;
-	}
+/* Main container */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+}
 
-	header, footer {
-	height: 100px; 
-	text-align: center;
-	padding: 30px 10px 20px 10px;
-	}
+/* Header */
+header {
+    margin-bottom: 20px;
+}
 
-	nav a {
-	color: rgb(200, 146, 249);
-	padding: 6px;
-	font-size: 2.5em;
-	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-	size: 2.5em;
-	text-decoration: none;
-	margin: 15px;
-	}
+h1 {
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+    color: rgb(200, 146, 249);
+    text-shadow: 0 0 10px rgba(200, 146, 249, 0.4);
+}
 
-	.clear-float {
-		clear:both;
-	}
+/* About text */
+.about p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
 
-	nav a:hover {
-	color: #fbb0f8;
-	/*background-color: lightyellow;*/
-	}
+/* Image */
+.image-wrapper img {
+    width: 90px;
+    margin: 20px 0;
+    border-radius: 50%;
+    border: 2px solid rgba(200, 146, 249, 0.4);
+    box-shadow: 0 0 12px rgba(200, 146, 249, 0.3);
+}
 
-	nav a:active {
-	font-weight: bold;
-	color:blueviolet;
-	font-weight: lighter;
-	}
+/* Navigation */
+nav {
+    margin-top: 25px;
+}
 
-	caption {
-	font-weight: bold;
-	font-size: 1.2em;
-	margin-bottom: 8px;
-	}
+nav a {
+    display: inline-block;
+    margin: 10px 15px;
+    padding: 8px 14px;
+    font-size: 1.1rem;
+    text-decoration: none;
+    color: rgb(200, 146, 249);
+    border: 1px solid transparent;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
 
-	table, th, td {
-	border: 1px solid #0d1f2d;
-	border-collapse: collapse;
-	padding: 5px 10px;
-	}
+/* Hover effects (retro glow) */
+nav a:hover {
+    color: #fff;
+    border-color: rgb(200, 146, 249);
+    background-color: rgba(200, 146, 249, 0.1);
+    box-shadow: 0 0 8px rgba(200, 146, 249, 0.6);
+}
 
-	table {
-	width: 70%;
-	margin: auto;
-	}
+/* Active click */
+nav a:active {
+    transform: scale(0.95);
+}
 
-	tr {
-	height: 30px;
-	}
+/* Divider */
+hr {
+    margin-top: 30px;
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(200,146,249,0.5), transparent);
+}
 
-	th {
-	background-color: rgb(198, 143, 249); 
-	color: #f2eded;
-	}
+/* Top nav (back button style) */
+.top-nav {
+    text-align: left;
+    margin-bottom: 20px;
+}
 
-	tbody tr:nth-child(odd) {
-	background-color: #e4c3ad; 
-	}
+.top-nav a {
+    font-size: 0.95rem;
+    opacity: 0.7;
+}
 
-	article img {
-	float:center;
-	}
+.top-nav a:hover {
+    opacity: 1;
+}
 
-	.right-content {
-	float:center;
-	}
+/* Section spacing */
+section {
+    margin-top: 20px;
+}
 
-	article {
-	margin-bottom: 16px;
-	}
+/* Card-style links */
+.links {
+    margin-top: 25px;
+}
 
-	nav a:visited {
+.card-link {
+    display: block;
+    margin: 15px auto;
+    padding: 14px;
+    max-width: 400px;
 
-	}
+    text-decoration: none;
+    color: rgb(200, 146, 249);
 
-	nav a:link {
-	color: rgb(200, 146, 249);
-	text-decoration: none;
-	}
+    border: 1px solid rgba(200, 146, 249, 0.3);
+    border-radius: 10px;
 
-	p {
-	color: rgb(200, 146, 249);;
-	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-	margin: 15px;
-	padding: 6px;
-	}
+    background: rgba(255, 255, 255, 0.02);
+    transition: all 0.25s ease;
+}
+
+/* Hover = modern retro glow */
+.card-link:hover {
+    background: rgba(200, 146, 249, 0.08);
+    border-color: rgb(200, 146, 249);
+    box-shadow: 0 0 12px rgba(200, 146, 249, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Slight variation for music cards */
+.card-link {
+    backdrop-filter: blur(4px);
+}
+
+/* Optional: subtle pulse glow for music feel */
+.card-link:hover {
+    box-shadow: 0 0 14px rgba(200, 146, 249, 0.7),
+                0 0 25px rgba(200, 146, 249, 0.2);
+}
+
+.brand {
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 6px rgba(200, 146, 249, 0.6);
+}
+
+.card-link {
+    position: relative;
+}
+
+/* tiny accent bar on hover */
+.card-link::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background: transparent;
+    transition: 0.2s;
+}
+
+.card-link:hover::before {
+    background: rgb(200, 146, 249);
+}
+
+/* Internal (apps/games/mods) */
+.links a[href$=".html"] {
+    border-style: dashed;
+}
+
+/* External links */
+.links a[href^="http"] {
+    border-style: solid;
+}
+
+.card-sub {
+    font-size: 0.85rem;
+    opacity: 0.7;
+    margin-top: 5px;
+}
+
+h1 {
+    text-shadow: 0 0 12px rgba(200, 146, 249, 0.5);
+}
+
+/* Featured project emphasis */
+header h1 {
+    font-size: 2.4rem;
+}
+
+.site-status {
+    font-size: 0.85rem;
+    opacity: 0.6;
+    margin-top: 6px;
+    color: rgb(200, 146, 249);
+    letter-spacing: 0.5px;
+}
+
+/* subtle pulse glow (very light, not annoying) */
+.site-status::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    margin-right: 8px;
+    border-radius: 50%;
+    background: rgb(200, 146, 249);
+    box-shadow: 0 0 6px rgba(200, 146, 249, 0.5);
+    animation: softPulse 2.5s infinite;
+    vertical-align: middle;
+}
+
+@keyframes softPulse {
+    0% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.9; transform: scale(1.2); }
+    100% { opacity: 0.4; transform: scale(1); }
+}
+
+.card-link {
+    border-color: rgba(114, 137, 218, 0.4); /* Discord-ish purple-blue */
+}
+
+.card-link:hover {
+    background: rgba(114, 137, 218, 0.12);
+    box-shadow: 0 0 14px rgba(114, 137, 218, 0.5);
+}
+
+/* Gallery layout */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin-top: 20px;
+}
+
+/* Images */
+.gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+
+    border: 1px solid rgba(200,146,249,0.2);
+    background: rgba(255,255,255,0.02);
+
+    transition: 0.25s ease;
+}
+
+/* Hover effect */
+.gallery img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 14px rgba(200,146,249,0.4);
+}
+
+.brand.crobus {
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(200,146,249,0.7);
+}
