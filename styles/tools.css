@@ -1,0 +1,160 @@
+/* Small in-browser tools (dice.html, rng.html). Builds on main.css: same purple glow, cards and fonts. */
+
+.tool-panel {
+    max-width: 440px;
+    margin: 25px auto 0;
+    padding: 24px 20px;
+    border: 1px solid rgba(200, 146, 249, 0.25);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+/* Buttons */
+.tool-button {
+    display: inline-block;
+    min-width: 180px;
+    margin: 6px;
+    padding: 12px 18px;
+    font: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #fff;
+    background: rgba(200, 146, 249, 0.15);
+    border: 1px solid rgb(200, 146, 249);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tool-button:hover,
+.tool-button:focus-visible {
+    background: rgba(200, 146, 249, 0.28);
+    box-shadow: 0 0 12px rgba(200, 146, 249, 0.6);
+    outline: none;
+}
+
+.tool-button:active {
+    transform: scale(0.96);
+}
+
+.tool-button.secondary {
+    color: rgb(200, 146, 249);
+    background: transparent;
+    border-color: rgba(200, 146, 249, 0.4);
+}
+
+/* The die */
+.die {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 160px;
+    height: 160px;
+    margin: 10px auto 24px;
+    font-size: 88px;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 0 12px rgba(200, 146, 249, 0.7);
+    border: 2px solid rgba(200, 146, 249, 0.6);
+    border-radius: 22px;
+    background: rgba(200, 146, 249, 0.06);
+    box-shadow: 0 0 18px rgba(200, 146, 249, 0.25);
+}
+
+.die.empty {
+    font-size: 1rem;
+    font-weight: 400;
+    opacity: 0.6;
+    text-shadow: none;
+}
+
+.die.rolling {
+    animation: dieShake 0.35s ease;
+}
+
+@keyframes dieShake {
+    0%   { transform: rotate(0deg) scale(1); }
+    25%  { transform: rotate(-12deg) scale(0.94); }
+    50%  { transform: rotate(10deg) scale(1.04); }
+    75%  { transform: rotate(-5deg) scale(0.98); }
+    100% { transform: rotate(0deg) scale(1); }
+}
+
+/* Number generator form */
+.tool-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+    text-align: left;
+}
+
+.tool-fields label {
+    display: block;
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+.tool-fields input {
+    width: 100%;
+    margin-top: 6px;
+    padding: 10px;
+    font: inherit;
+    font-size: 1.05rem;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(200, 146, 249, 0.35);
+    border-radius: 8px;
+}
+
+.tool-fields input:focus {
+    outline: none;
+    border-color: rgb(200, 146, 249);
+    box-shadow: 0 0 8px rgba(200, 146, 249, 0.5);
+}
+
+.tool-error {
+    min-height: 1.4em;
+    margin: 4px 0 10px;
+    font-size: 0.9rem;
+    color: #ff8fa3;
+}
+
+.tool-results {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 18px;
+}
+
+.tool-results span {
+    min-width: 52px;
+    padding: 8px 12px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #fff;
+    border: 1px solid rgba(200, 146, 249, 0.35);
+    border-radius: 8px;
+    background: rgba(200, 146, 249, 0.06);
+    font-variant-numeric: tabular-nums;
+}
+
+.tool-note {
+    margin-top: 14px;
+    font-size: 0.85rem;
+    opacity: 0.6;
+}
+
+@media (max-width: 480px) {
+    .tool-fields {
+        grid-template-columns: 1fr;
+    }
+
+    .tool-button {
+        width: 100%;
+        margin: 6px 0;
+    }
+}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Random Number Generator</title>
+    <meta name="description" content="Pick random whole numbers between a minimum and a maximum. RNG by TheCoberto">
+    <link rel="icon" type="image/x-icon" href="images/mascot.png" />
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/tools.css">
+</head>
+
+<body>
+    <nav class="top-nav">
+        <a href="index.html">Home</a>
+        <a href="videos.html">Videos</a>
+        <a href="music.html">Music</a>
+        <a href="software.html">Software</a>
+        <a href="photography.html">Photos</a>
+        <a href="discord.html">Discord</a>
+    </nav>
+    <main class="container">
+
+        <!-- Back nav -->
+        <nav class="top-nav">
+            <a href="apps.html">← Apps</a>
+        </nav>
+
+        <header>
+            <h1>Random Number Generator</h1>
+        </header>
+
+        <section class="tool-panel">
+            <form id="rngForm" novalidate>
+                <div class="tool-fields">
+                    <label>Minimum
+                        <input id="min" type="number" step="1" value="1" required>
+                    </label>
+                    <label>Maximum
+                        <input id="max" type="number" step="1" value="100" required>
+                    </label>
+                    <label>How many
+                        <input id="count" type="number" step="1" min="1" max="1000" value="1" required>
+                    </label>
+                </div>
+
+                <p id="error" class="tool-error" role="alert"></p>
+
+                <button class="tool-button" type="submit">Generate</button>
+                <!-- Not id="reset": a form's controls show up as properties of the form, and that would hide form.reset() -->
+                <button id="resetBtn" class="tool-button secondary" type="button">Reset</button>
+            </form>
+
+            <div id="results" class="tool-results" aria-live="polite"></div>
+            <p id="note" class="tool-note"></p>
+        </section>
+
+        <hr>
+    </main>
+
+    <script>
+        // Same limits as the original C# app (an int), and a cap so a huge "how many" can't freeze the page
+        const INT_MIN = -2147483648, INT_MAX = 2147483647, MAX_COUNT = 1000;
+
+        const form = document.getElementById('rngForm');
+        const fields = { min: document.getElementById('min'), max: document.getElementById('max'), count: document.getElementById('count') };
+        const error = document.getElementById('error');
+        const results = document.getElementById('results');
+        const note = document.getElementById('note');
+
+        // A whole number from min to max (both included), from the browser's crypto random numbers, with no bias
+        function randomInt(min, max) {
+            const span = max - min + 1;                        // at most 2^32 with int limits
+            const limit = Math.floor(0x100000000 / span) * span;
+            const draw = new Uint32Array(1);
+            do { crypto.getRandomValues(draw); } while (draw[0] >= limit);
+            return min + (draw[0] % span);
+        }
+
+        // The field's whole number, or null (with the message shown) if it isn't one
+        function readInt(input, name, low, high) {
+            const text = input.value.trim();
+            const n = Number(text);
+            if (text === '' || !Number.isInteger(n)) {
+                fail(input, 'Please enter a whole number for ' + name + '.');
+                return null;
+            }
+            if (n < low || n > high) {
+                fail(input, name.charAt(0).toUpperCase() + name.slice(1) + ' must be between ' +
+                    low.toLocaleString() + ' and ' + high.toLocaleString() + '.');
+                return null;
+            }
+            return n;
+        }
+
+        function fail(input, message) {
+            error.textContent = message;
+            input.setAttribute('aria-invalid', 'true');
+            input.focus();
+        }
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            error.textContent = '';
+            Object.values(fields).forEach(f => f.removeAttribute('aria-invalid'));
+
+            const min = readInt(fields.min, 'the minimum', INT_MIN, INT_MAX);
+            if (min === null) return;
+            const max = readInt(fields.max, 'the maximum', INT_MIN, INT_MAX);
+            if (max === null) return;
+            const count = readInt(fields.count, 'how many', 1, MAX_COUNT);
+            if (count === null) return;
+            if (min > max) {
+                fail(fields.max, "The maximum can't be smaller than the minimum.");
+                return;
+            }
+
+            results.replaceChildren(...Array.from({ length: count }, () => {
+                const chip = document.createElement('span');
+                chip.textContent = randomInt(min, max);
+                return chip;
+            }));
+            note.textContent = 'Press Generate for ' + count + ' new number' + (count === 1 ? '' : 's') + ', or Reset to start over.';
+        });
+
+        document.getElementById('resetBtn').addEventListener('click', function () {
+            form.reset();
+            error.textContent = '';
+            Object.values(fields).forEach(f => f.removeAttribute('aria-invalid'));
+            results.replaceChildren();
+            note.textContent = '';
+            fields.min.focus();
+        });
+    </script>
+</body>
+</html>

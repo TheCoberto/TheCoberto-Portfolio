@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dice Roller</title>
+    <meta name="description" content="Roll a six-sided die. Dice Roller by TheCoberto">
+    <link rel="icon" type="image/x-icon" href="images/mascot.png" />
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/tools.css">
+</head>
+
+<body>
+    <nav class="top-nav">
+        <a href="index.html">Home</a>
+        <a href="videos.html">Videos</a>
+        <a href="music.html">Music</a>
+        <a href="software.html">Software</a>
+        <a href="photography.html">Photos</a>
+        <a href="discord.html">Discord</a>
+    </nav>
+    <main class="container">
+
+        <!-- Back nav -->
+        <nav class="top-nav">
+            <a href="apps.html">← Apps</a>
+        </nav>
+
+        <header>
+            <h1>Dice Roller</h1>
+        </header>
+
+        <section class="tool-panel">
+            <div id="die" class="die empty" aria-live="polite" aria-label="Die">Press roll</div>
+            <button id="roll" class="tool-button" type="button">Roll Dice</button>
+        </section>
+
+        <hr>
+    </main>
+
+    <script>
+        // A fair roll: 1 to `sides`, from the browser's crypto random numbers (no bias towards any face)
+        function rollDie(sides) {
+            const draw = new Uint32Array(1);
+            const limit = Math.floor(0x100000000 / sides) * sides;
+            do { crypto.getRandomValues(draw); } while (draw[0] >= limit);
+            return (draw[0] % sides) + 1;
+        }
+
+        const die = document.getElementById('die');
+
+        document.getElementById('roll').addEventListener('click', function () {
+            die.classList.remove('empty', 'rolling');
+            void die.offsetWidth; // restart the shake animation on every roll
+            die.classList.add('rolling');
+            die.textContent = rollDie(6);
+        });
+    </script>
+</body>
+</html>
