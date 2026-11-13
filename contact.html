@@ -113,7 +113,8 @@
                 form.reset();
                 showStatus("Thanks! Your message was sent. I'll get back to you soon.");
             } catch (err) {
-                showStatus("Sorry, that didn't go through. Please try again, or email me directly using the link below.", true);
+                // Include FormSubmit's own reason (e.g. the form still needs activating) so problems can be diagnosed
+                showStatus("Sorry, that didn't go through (" + (err.message || 'unknown error') + "). Please try again, or email me directly using the link below.", true);
             } finally {
                 sendBtn.disabled = false;
                 sendBtn.textContent = 'Send';
