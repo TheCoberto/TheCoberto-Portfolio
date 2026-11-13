@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact</title>
+    <meta name="description" content="Get in touch with Coby (TheCoberto)">
+    <link rel="icon" type="image/x-icon" href="images/mascot.png" />
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/tools.css">
+</head>
+
+<body>
+    <nav class="top-nav">
+        <a href="index.html">Home</a>
+        <a href="videos.html">Videos</a>
+        <a href="music.html">Music</a>
+        <a href="software.html">Software</a>
+        <a href="photography.html">Photos</a>
+        <a href="discord.html">Discord</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <main class="container">
+
+        <header>
+            <h1>Contact Me</h1>
+        </header>
+
+        <section class="about">
+            <p>
+                Questions, collabs, business inquiries, or just want to say hi?
+                Send me a message and I'll get back to you.
+            </p>
+        </section>
+
+        <section class="tool-panel">
+            <!--
+                Messages are delivered by FormSubmit (https://formsubmit.co), a free service for static sites.
+                The action works without JavaScript; the script below sends it in the background instead
+                so visitors stay on this page.
+            -->
+            <form id="contactForm" class="contact-form" action="https://formsubmit.co/thecoberto@gmail.com" method="POST">
+                <label>Name
+                    <input name="name" type="text" autocomplete="name" maxlength="100" required>
+                </label>
+
+                <label>Email
+                    <input name="email" type="email" autocomplete="email" maxlength="200" required>
+                </label>
+
+                <label>Message
+                    <textarea name="message" rows="6" maxlength="5000" required></textarea>
+                </label>
+
+                <!-- FormSubmit settings -->
+                <input type="hidden" name="_subject" value="New message from thecoberto.com">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_next" value="https://thecoberto.com/contact.html?sent=1">
+                <!-- Spam trap: hidden from people, bots tend to fill it in, and FormSubmit drops those -->
+                <input class="contact-honey" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+                <p id="status" class="contact-status" role="status" aria-live="polite"></p>
+
+                <button id="sendBtn" class="tool-button" type="submit">Send</button>
+            </form>
+        </section>
+
+        <p class="contact-alt">
+            Prefer email? Write to
+            <a href="mailto:thecoberto@gmail.com">thecoberto@gmail.com</a>
+        </p>
+
+        <hr>
+    </main>
+
+    <script>
+        const form = document.getElementById('contactForm');
+        const status = document.getElementById('status');
+        const sendBtn = document.getElementById('sendBtn');
+
+        function showStatus(message, isError) {
+            status.textContent = message;
+            status.classList.toggle('error', !!isError);
+        }
+
+        // Coming back from the no-JavaScript route (FormSubmit redirects to ?sent=1)
+        if (new URLSearchParams(location.search).get('sent') === '1') {
+            showStatus("Thanks! Your message was sent. I'll get back to you soon.");
+        }
+
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            if (!form.reportValidity()) return;
+
+            sendBtn.disabled = true;
+            sendBtn.textContent = 'Sending...';
+            showStatus('');
+
+            try {
+                // Same address as the form's action, through FormSubmit's JSON endpoint
+                const endpoint = form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/');
+                const response = await fetch(endpoint, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify(Object.fromEntries(new FormData(form)))
+                });
+                const result = await response.json().catch(() => ({}));
+                if (!response.ok || String(result.success) !== 'true') {
+                    throw new Error(result.message || 'Request failed');
+                }
+
+                form.reset();
+                showStatus("Thanks! Your message was sent. I'll get back to you soon.");
+            } catch (err) {
+                showStatus("Sorry, that didn't go through. Please try again, or email me directly using the link below.", true);
+            } finally {
+                sendBtn.disabled = false;
+                sendBtn.textContent = 'Send';
+            }
+        });
+    </script>
+</body>
+</html>
