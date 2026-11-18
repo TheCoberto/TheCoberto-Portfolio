@@ -1,4 +1,4 @@
-/* Small in-browser tools (dice.html, rng.html). Builds on main.css: same purple glow, cards and fonts. */
+/* Small in-browser tools (dice.html, rng.html, coffee.html). Builds on main.css: same purple glow, cards and fonts. */
 
 .tool-panel {
     max-width: 440px;
@@ -233,4 +233,87 @@
 
 .contact-alt a {
     color: #fff;
+}
+
+/* Coffee calculator (coffee.html) */
+.tool-label {
+    margin: 0 0 8px;
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+.tool-segments {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.tool-segments button {
+    padding: 10px 6px;
+    font: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: rgb(200, 146, 249);
+    background: transparent;
+    border: 1px solid rgba(200, 146, 249, 0.4);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tool-segments button span {
+    display: block;
+    margin-top: 2px;
+    font-size: 0.8rem;
+    font-weight: 400;
+    opacity: 0.75;
+    font-variant-numeric: tabular-nums;
+}
+
+.tool-segments button[aria-checked="true"] {
+    color: #fff;
+    background: rgba(200, 146, 249, 0.2);
+    border-color: rgb(200, 146, 249);
+    box-shadow: 0 0 12px rgba(200, 146, 249, 0.5);
+}
+
+.tool-segments button:focus-visible {
+    outline: none;
+    box-shadow: 0 0 12px rgba(200, 146, 249, 0.7);
+}
+
+.tool-fields.two {
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 0;
+}
+
+.coffee-results {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-top: 18px;
+}
+
+.coffee-results div {
+    padding: 10px 6px;
+    font-size: 0.8rem;
+    opacity: 0.85;
+    border: 1px solid rgba(200, 146, 249, 0.35);
+    border-radius: 8px;
+    background: rgba(200, 146, 249, 0.06);
+}
+
+.coffee-results strong {
+    display: block;
+    margin-bottom: 2px;
+    font-size: 1.2rem;
+    color: #fff;
+    font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 480px) {
+    .tool-fields.two {
+        grid-template-columns: 1fr;
+    }
 }

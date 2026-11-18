@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Coffee Calculator</title>
+    <meta name="description" content="Work out how much water to pour over your coffee grounds. Coffee Calculator by TheCoberto">
+    <link rel="icon" type="image/x-icon" href="images/mascot.png" />
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/tools.css">
+</head>
+
+<body>
+    <nav class="top-nav">
+        <a href="index.html">Home</a>
+        <a href="videos.html">Videos</a>
+        <a href="music.html">Music</a>
+        <a href="software.html">Software</a>
+        <a href="photography.html">Photos</a>
+        <a href="discord.html">Discord</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <main class="container">
+
+        <!-- Back nav -->
+        <nav class="top-nav">
+            <a href="apps.html">← Apps</a>
+        </nav>
+
+        <header>
+            <h1>Coffee Calculator</h1>
+        </header>
+
+        <section class="tool-panel">
+            <p class="tool-label">Strength</p>
+            <div class="tool-segments" role="radiogroup" aria-label="Brew strength">
+                <button type="button" role="radio" data-ratio="17" aria-checked="false">Weak<span>1:17</span></button>
+                <button type="button" role="radio" data-ratio="16" aria-checked="true">Normal<span>1:16</span></button>
+                <button type="button" role="radio" data-ratio="15" aria-checked="false">Strong<span>1:15</span></button>
+            </div>
+
+            <div class="tool-fields two">
+                <label>Coffee grounds (g)
+                    <input id="coffee" type="number" inputmode="decimal" min="0" step="0.5" value="20">
+                </label>
+                <label>Water (g or ml)
+                    <input id="water" type="number" inputmode="decimal" min="0" step="5" value="320">
+                </label>
+            </div>
+            <p class="tool-note">Fill in either box and the other one follows.</p>
+
+            <div class="coffee-results" aria-live="polite">
+                <div><strong id="bloom">40 g</strong>Bloom pour</div>
+                <div><strong id="yield">280 ml</strong>Coffee in the cup</div>
+                <div><strong id="cups">1.2</strong>8 oz cups</div>
+            </div>
+
+            <p class="tool-note">
+                Start with the bloom: pour about twice the coffee's weight in water, wait 30 to 45 seconds,
+                then slowly pour the rest. The grounds soak up about 2 g of water per gram of coffee,
+                so you end up with a little less coffee than the water you poured.
+            </p>
+        </section>
+
+        <hr>
+    </main>
+
+    <script>
+        const coffeeInput = document.getElementById('coffee');
+        const waterInput = document.getElementById('water');
+        const strengthButtons = document.querySelectorAll('.tool-segments button');
+
+        let ratio = 16;
+        let lastEdited = 'coffee'; // the box the user typed in last stays fixed when the strength changes
+
+        // Whole grams for water, half grams for coffee: about what a kitchen scale shows
+        const roundTo = (value, step) => Math.round(value / step) * step;
+
+        function readNumber(input) {
+            const value = parseFloat(input.value);
+            return Number.isFinite(value) && value > 0 ? value : 0;
+        }
+
+        function update() {
+            let coffee, water;
+            if (lastEdited === 'coffee') {
+                coffee = readNumber(coffeeInput);
+                water = coffee * ratio;
+                waterInput.value = coffee ? roundTo(water, 1) : '';
+            } else {
+                water = readNumber(waterInput);
+                coffee = water / ratio;
+                coffeeInput.value = water ? roundTo(coffee, 0.5) : '';
+            }
+
+            const brewed = Math.max(0, water - coffee * 2);
+            document.getElementById('bloom').textContent = Math.round(coffee * 2) + ' g';
+            document.getElementById('yield').textContent = Math.round(brewed) + ' ml';
+            document.getElementById('cups').textContent = (brewed / 236.6).toFixed(1);
+        }
+
+        coffeeInput.addEventListener('input', function () { lastEdited = 'coffee'; update(); });
+        waterInput.addEventListener('input', function () { lastEdited = 'water'; update(); });
+
+        strengthButtons.forEach(function (button) {
+            button.addEventListener('click', function () {
+                strengthButtons.forEach(b => b.setAttribute('aria-checked', String(b === button)));
+                ratio = Number(button.dataset.ratio);
+                update();
+            });
+        });
+
+        update();
+    </script>
+</body>
+</html>
