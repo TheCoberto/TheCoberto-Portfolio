@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blackjack Coach</title>
+    <meta name="description" content="Learn to play blackjack: live odds, expected value, basic strategy and card counting while you play. By TheCoberto">
+    <link rel="icon" type="image/x-icon" href="images/mascot.png" />
+    <link rel="stylesheet" href="styles/blackjack.css">
+</head>
+
+<body>
+    <div class="app">
+
+        <!-- Top bar -->
+        <header class="topbar">
+            <div class="brand">
+                <span class="brand-suit">♠</span>
+                <span class="brand-name">Blackjack Coach</span>
+            </div>
+            <div class="mode-switch" role="group" aria-label="Mode">
+                <button type="button" data-mode="coach" class="seg">Coach</button>
+                <button type="button" data-mode="practice" class="seg">Practice</button>
+            </div>
+            <div class="top-actions">
+                <label class="toggle" title="Show the Hi-Lo card count">
+                    <input type="checkbox" id="count-toggle">
+                    <span class="toggle-track"><span class="toggle-thumb"></span></span>
+                    <span>Count</span>
+                </label>
+                <button type="button" class="icon-btn" id="chart-btn" title="Basic strategy chart">Chart</button>
+                <button type="button" class="icon-btn" id="settings-btn" title="Table rules and settings">Rules</button>
+            </div>
+        </header>
+
+        <div class="layout">
+
+            <!-- Table -->
+            <section class="table-wrap">
+                <div class="table">
+                    <div class="dealer-zone">
+                        <div class="zone-label">Dealer <span id="dealer-total" class="total-pill hidden"></span></div>
+                        <div id="dealer-cards" class="cards"></div>
+                    </div>
+
+                    <div class="table-print" aria-hidden="true">
+                        <svg viewBox="0 0 600 120" class="arc">
+                            <path id="arc-path" d="M 40 20 Q 300 120 560 20" fill="none" />
+                            <text><textPath href="#arc-path" startOffset="50%" text-anchor="middle" class="arc-main">BLACKJACK PAYS 3 TO 2</textPath></text>
+                        </svg>
+                        <div class="print-line" id="rules-print">Dealer stands on all 17s</div>
+                        <div class="print-line small">Insurance pays 2 to 1</div>
+                    </div>
+
+                    <div id="message" class="message" aria-live="polite"></div>
+
+                    <div id="player-hands" class="player-hands"></div>
+                </div>
+
+                <!-- Controls -->
+                <div class="controls">
+                    <div id="bet-controls" class="control-row">
+                        <div class="bankroll">
+                            <div class="label">Bankroll</div>
+                            <div id="bankroll" class="value">$1,000</div>
+                        </div>
+                        <div class="chips">
+                            <button type="button" class="chip c5" data-chip="5">5</button>
+                            <button type="button" class="chip c25" data-chip="25">25</button>
+                            <button type="button" class="chip c100" data-chip="100">100</button>
+                            <button type="button" class="chip c500" data-chip="500">500</button>
+                        </div>
+                        <div class="bet-box">
+                            <div class="label">Bet</div>
+                            <div id="bet" class="value">$0</div>
+                        </div>
+                        <div class="bet-buttons">
+                            <button type="button" class="btn ghost" id="clear-bet">Clear</button>
+                            <button type="button" class="btn primary" id="deal-btn">Deal</button>
+                        </div>
+                    </div>
+
+                    <div id="insurance-controls" class="control-row hidden">
+                        <div class="insurance-q">Dealer shows an Ace. Take insurance?</div>
+                        <button type="button" class="btn act" data-ins="yes">Take insurance <kbd>Y</kbd></button>
+                        <button type="button" class="btn act" data-ins="no">No insurance <kbd>N</kbd></button>
+                    </div>
+
+                    <div id="play-controls" class="control-row hidden">
+                        <button type="button" class="btn act hit" data-act="H">Hit <kbd>H</kbd></button>
+                        <button type="button" class="btn act stand" data-act="S">Stand <kbd>S</kbd></button>
+                        <button type="button" class="btn act double" data-act="D">Double <kbd>D</kbd></button>
+                        <button type="button" class="btn act split" data-act="P">Split <kbd>P</kbd></button>
+                        <button type="button" class="btn act surrender" data-act="R">Surrender <kbd>R</kbd></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Coach panel -->
+            <aside class="coach" id="coach" aria-live="polite"></aside>
+        </div>
+    </div>
+
+    <!-- Strategy chart -->
+    <dialog id="chart-dialog" class="modal">
+        <div class="modal-head">
+            <h2>Basic Strategy</h2>
+            <button type="button" class="icon-btn" data-close>Close</button>
+        </div>
+        <p class="modal-sub" id="chart-sub"></p>
+        <div id="chart-body"></div>
+        <div class="legend">
+            <span><i class="cell H">H</i> Hit</span>
+            <span><i class="cell S">S</i> Stand</span>
+            <span><i class="cell D">D</i> Double (else hit)</span>
+            <span><i class="cell D">Ds</i> Double (else stand)</span>
+            <span><i class="cell P">P</i> Split</span>
+            <span><i class="cell R">Rh</i> Surrender (else hit)</span>
+            <span><i class="cell R">Rs</i> Surrender (else stand)</span>
+            <span><i class="cell R">Rp</i> Surrender (else split)</span>
+        </div>
+    </dialog>
+
+    <!-- Settings -->
+    <dialog id="settings-dialog" class="modal">
+        <div class="modal-head">
+            <h2>Table Rules</h2>
+            <button type="button" class="icon-btn" data-close>Close</button>
+        </div>
+        <form id="settings-form" class="settings" method="dialog">
+            <label>Decks in the shoe
+                <select name="decks">
+                    <option value="1">1 deck</option>
+                    <option value="2">2 decks</option>
+                    <option value="4">4 decks</option>
+                    <option value="6">6 decks</option>
+                    <option value="8">8 decks</option>
+                </select>
+            </label>
+            <label>Soft 17
+                <select name="h17">
+                    <option value="0">Dealer stands on soft 17 (S17)</option>
+                    <option value="1">Dealer hits soft 17 (H17)</option>
+                </select>
+            </label>
+            <label class="check"><input type="checkbox" name="das"> Double after split allowed</label>
+            <label class="check"><input type="checkbox" name="surrender"> Late surrender allowed</label>
+            <p class="hint">
+                The dealer peeks for blackjack when showing an Ace or 10. You can split up to 4 hands, and split Aces get one card each.
+                The shoe is reshuffled after about 75% of it is dealt. Changing the number of decks starts a fresh shoe on the next deal.
+            </p>
+            <div class="settings-foot">
+                <button type="button" class="btn ghost danger" id="reset-btn">Reset bankroll &amp; stats</button>
+                <button type="submit" class="btn primary">Done</button>
+            </div>
+        </form>
+    </dialog>
+
+    <script src="scripts/blackjack-engine.js"></script>
+    <script src="scripts/blackjack.js"></script>
+</body>
+</html>
