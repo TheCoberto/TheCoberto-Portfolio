@@ -3,8 +3,12 @@
     box-sizing: border-box;
 }
 
+/* Gradient sits on the root so it always fills the whole window */
+html {
+    background: linear-gradient(180deg, #0c0d0f, #14161b) fixed #14161b;
+}
+
 body {
-    background: linear-gradient(180deg, #0c0d0f, #14161b);
     font-family: 'Segoe UI', Arial, sans-serif;
     margin: 0;
     color: rgb(200, 146, 249);
