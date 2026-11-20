@@ -28,6 +28,9 @@
         map:         { url: "http://crobus.minecraft.best:8100",         desc: "KINGDOM OF CROBUS live map" },
         github:      { url: "https://github.com/TheCoberto",             desc: "Source code" },
         mcpedl:      { url: "https://mcpedl.com/user/thecoberto/",       desc: "Minecraft add-ons" },
+        beverages:   { url: "https://mcpedl.com/beverages/",           desc: "Beverages add-on" },
+        "skeleton-variants": { url: "https://mcpedl.com/skeleton-variants/", desc: "Skeleton Variants add-on" },
+        "cleanup-utility":   { url: "https://mcpedl.com/cleanup-function/",  desc: "Cleanup Utility script" },
         youtube:     { url: "https://youtube.com/TheCoberto",            desc: "TheCoberto on YouTube" },
         thecrobus:   { url: "https://www.youtube.com/@TheCrobus",        desc: "TheCrobus on YouTube" },
         twitch:      { url: "https://www.twitch.tv/crobuslive",          desc: "crobuslive on Twitch" },
@@ -36,7 +39,7 @@
         soundcloud:  { url: "https://soundcloud.com/castafraymusic",     desc: "CASTAFRAY on SoundCloud" },
         spotify:     { url: "https://open.spotify.com/artist/4yJnKlxbqdWVdmIk4VvSsl", desc: "CASTAFRAY on Spotify" },
     };
-    const ALIASES = { photography: "photos", kingdom: "crobus", castafray: "music", bj: "blackjack", "~": "home", "/": "home", "..": "home" };
+    const ALIASES = { skeletons: "skeleton-variants", cleanup: "cleanup-utility", photography: "photos", kingdom: "crobus", castafray: "music", bj: "blackjack", "~": "home", "/": "home", "..": "home" };
 
     // What "ls" shows for each directory.
     const DIRS = {
@@ -45,7 +48,7 @@
         apps:     ["visualizer", "dice", "rng", "coffee", "lethal", "villagerify"],
         games:    ["crobus", "blackjack"],
         mods:     ["minecraft-bedrock/"],
-        "minecraft-bedrock": ["beverages.mcaddon", "skeleton-variants.mcaddon", "world-cleanup.mcaddon"],
+        "minecraft-bedrock": ["beverages.mcaddon", "skeleton-variants.mcaddon", "cleanup-utility.mcpack"],
         videos:   ["youtube", "thecrobus", "twitch", "kick", "rumble"],
         music:    ["soundcloud", "spotify"],
     };
@@ -68,7 +71,7 @@
 
     function resolve(name) {
         if (!name) return null;
-        const key = name.toLowerCase().replace(/\/+$/, "").replace(/\.(html|txt|mcaddon)$/, "");
+        const key = name.toLowerCase().replace(/\/+$/, "").replace(/\.(html|txt|mcaddon|mcpack)$/, "");
         const k = ALIASES[key] || key;
         return PLACES[k] ? k : null;
     }
@@ -138,7 +141,7 @@
             run(args) {
                 const f = (args[0] || "").toLowerCase();
                 if (f === "readme.txt" || f === "readme") return README.forEach((l) => print(l || "&nbsp;"));
-                if (f.endsWith(".mcaddon")) return print("Binary file. Grab it on MCPEDL: <span class=\"term-accent\">open mcpedl</span>");
+                if (/\.(mcaddon|mcpack)$/.test(f)) { const k = resolve(f); return print(`Binary file. Grab it on MCPEDL: <span class="term-accent">open ${k || "mcpedl"}</span>`); }
                 print(`cat: ${esc(f || "(nothing)")}: No such file`, "term-err");
             },
         },
