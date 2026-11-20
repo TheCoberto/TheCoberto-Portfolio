@@ -542,3 +542,83 @@ body.term-glitch {
     border: 1px solid rgba(200,146,249,0.35);
     opacity: 0.75;
 }
+
+/* ===== Photo lightbox ===== */
+.gallery img { cursor: zoom-in; }
+.gallery img:focus-visible { outline: 2px solid rgb(200,146,249); outline-offset: 3px; }
+
+body.lb-open { overflow: hidden; }
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(6, 6, 8, 0.94);
+    backdrop-filter: blur(4px);
+    animation: lbFade 0.2s ease;
+}
+.lightbox[hidden] { display: none; }
+
+.lb-figure {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 56px 72px 20px;
+    box-sizing: border-box;
+}
+
+.lb-img {
+    max-width: 100%;
+    max-height: calc(100% - 36px);
+    object-fit: contain;
+    border-radius: 8px;
+    border: 1px solid rgba(200,146,249,0.25);
+    box-shadow: 0 0 30px rgba(200,146,249,0.2);
+}
+
+.lb-count {
+    margin-top: 12px;
+    font-size: 0.85rem;
+    opacity: 0.7;
+    font-family: Consolas, "Cascadia Mono", Menlo, monospace;
+}
+
+.lb-btn {
+    position: absolute;
+    background: rgba(255,255,255,0.04);
+    color: rgb(200,146,249);
+    border: 1px solid rgba(200,146,249,0.3);
+    border-radius: 50%;
+    width: 46px;
+    height: 46px;
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: 0.2s;
+    z-index: 1;
+}
+.lb-btn:hover, .lb-btn:focus-visible {
+    color: #fff;
+    border-color: rgb(200,146,249);
+    box-shadow: 0 0 10px rgba(200,146,249,0.6);
+    outline: none;
+}
+.lb-close { top: 14px; right: 14px; font-size: 1.1rem; }
+.lb-prev  { left: 14px;  top: 50%; transform: translateY(-50%); }
+.lb-next  { right: 14px; top: 50%; transform: translateY(-50%); }
+
+@keyframes lbFade { from { opacity: 0; } to { opacity: 1; } }
+
+@media (max-width: 600px) {
+    .lb-figure { padding: 60px 8px 80px; }
+    .lb-prev, .lb-next { top: auto; bottom: 18px; transform: none; }
+    .lb-prev { left: calc(50% - 60px); }
+    .lb-next { right: calc(50% - 60px); }
+}
