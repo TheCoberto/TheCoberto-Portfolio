@@ -1,8 +1,19 @@
 <!DOCTYPE html>
 <html lang="en"> 
-<head> 
+<head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TheCoberto</title>
+    <meta name="description" content="Coby's corner of the internet: videos, CASTAFRAY music, browser apps and games, Minecraft mods, and the KINGDOM OF CROBUS server.">
+    <link rel="canonical" href="https://thecoberto.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="TheCoberto">
+    <meta property="og:title" content="TheCoberto">
+    <meta property="og:description" content="Coby's corner of the internet: videos, CASTAFRAY music, browser apps and games, Minecraft mods, and the KINGDOM OF CROBUS server.">
+    <meta property="og:url" content="https://thecoberto.com/">
+    <meta property="og:image" content="https://thecoberto.com/images/mascot.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="theme-color" content="#c892f9">
     <link href="styles/main.css" rel="stylesheet" type="text/css" />
     <link rel="icon" type="image/x-icon" href="images/mascot.png" />
 </head> 
@@ -66,8 +77,21 @@
             </a>
 
         </section>
-    
+
+        <section class="terminal" id="terminal" aria-label="CobertOS terminal">
+            <div class="term-bar">
+                <span class="term-dot"></span><span class="term-dot"></span><span class="term-dot"></span>
+                <span class="term-title">cobsh — guest@cobertos</span>
+            </div>
+            <div class="term-output" id="term-output" aria-live="polite"></div>
+            <div class="term-input-row">
+                <label for="term-input" class="term-prompt" id="term-prompt-label">guest@cobertos:~$</label>
+                <input id="term-input" class="term-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="type help">
+            </div>
+        </section>
+
     </main>
+    <script src="scripts/terminal.js"></script>
     <script>
         window.addEventListener("load", () => {
             setTimeout(() => {
