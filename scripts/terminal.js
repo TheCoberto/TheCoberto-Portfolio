@@ -28,6 +28,7 @@
         map:         { url: "http://crobus.minecraft.best:8100",         desc: "KINGDOM OF CROBUS live map" },
         github:      { url: "https://github.com/TheCoberto",             desc: "Source code" },
         mcpedl:      { url: "https://mcpedl.com/user/thecoberto/",       desc: "Minecraft add-ons" },
+        curseforge:  { url: "https://www.curseforge.com/members/thecoberto/projects", desc: "CurseForge projects" },
         beverages:   { url: "https://mcpedl.com/beverages/",           desc: "Beverages add-on" },
         "skeleton-variants": { url: "https://mcpedl.com/skeleton-variants/", desc: "Skeleton Variants add-on" },
         "cleanup-utility":   { url: "https://mcpedl.com/cleanup-function/",  desc: "Cleanup Utility script" },
@@ -44,7 +45,7 @@
     // What "ls" shows for each directory.
     const DIRS = {
         "~":      ["videos/", "music/", "software/", "games/", "photos/", "discord/", "contact/", "readme.txt"],
-        software: ["apps/", "games/", "mods/", "github", "mcpedl"],
+        software: ["apps/", "games/", "mods/", "github", "mcpedl", "curseforge"],
         apps:     ["visualizer", "dice", "rng", "coffee", "lethal", "villagerify"],
         games:    ["crobus", "blackjack"],
         mods:     ["minecraft-bedrock/"],
@@ -150,7 +151,7 @@
         socials: {
             desc: "Where to find me",
             run() {
-                ["youtube", "thecrobus", "twitch", "kick", "rumble", "soundcloud", "spotify", "github", "mcpedl"].forEach((k) =>
+                ["youtube", "thecrobus", "twitch", "kick", "rumble", "soundcloud", "spotify", "github", "mcpedl", "curseforge"].forEach((k) =>
                     print(`<a class="term-link" href="${PLACES[k].url}" target="_blank" rel="noopener">${k.padEnd(11).replace(/ /g, "&nbsp;")}</a><span class="term-dim">${esc(PLACES[k].desc)}</span>`)
                 );
             },
