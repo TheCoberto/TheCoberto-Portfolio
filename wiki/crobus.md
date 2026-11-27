@@ -12,6 +12,16 @@ Kingdom of Crobus is a community Minecraft survival server for Java and Bedrock.
 
 Java and Bedrock players share the same world, chat and economy. Bedrock players may notice small differences (combat feel, menus, the off-hand), which are crossplay limits rather than bugs.
 
+### Starter Kit
+The first time you join, you get a free **Starter Kit**:
+- Stone Sword
+- Stone Pickaxe
+- Stone Axe
+- Stone Shovel
+- **Compass**: right-click it to open the server menu (Spawn, Home, Classes and more). See [Handy Commands](#handy-commands).
+
+That's the whole kit. You start with **$0** and no armor or food, so earn your first money with [Jobs](#jobs) and claim your [Daily Rewards](#daily-rewards) for food and XP. You also start with an hour of [Newbie Protection](#newbie-protection) from other players.
+
 ### Your First Day
 1. **Pick Peaceful or Fighter** when you first join. Not sure? Read [PvP: Peaceful or Fighter](#pvp-peaceful-or-fighter).
 2. **Pick a class** with `/class`. See [Classes](#classes).
@@ -352,6 +362,7 @@ Something lives in the dark. None of these creatures are announced, and most of 
 
 | Creature | Dangerous? |
 |---|---|
+| [Disguised Shifter](#disguised-shifter) | Not until it reveals itself |
 | [The Shifter](#the-shifter) | **Yes** |
 | [Shifted Players](#shifted-players) | **Yes**, it's the Shifter |
 | [Shifter Presence](#shifter-presence) | Mostly scary |
@@ -359,10 +370,16 @@ Something lives in the dark. None of these creatures are announced, and most of 
 | [Eyes in the Dark](#eyes-in-the-dark) | No |
 | [Staring Animals](#staring-animals) | No |
 
+#### Disguised Shifter
+The Shifter's hiding form: it looks exactly like an ordinary mob.
+- **What you'll see:** a sheep, pig, cow, chicken, wolf, villager, zombie, skeleton, spider or creeper that **keeps turning to look at you**. Even the hostile ones never attack.
+- **Danger: not yet.** It can't hurt you while disguised, but it turns into [the Shifter](#the-shifter) if you stay within 3 blocks of it for about 2 seconds, or hit it.
+- **What to do:** a mob that stares and never attacks is the giveaway. Back away and leave it alone: a disguise that nobody bothers disappears after about 3 minutes.
+
 #### The Shifter
-- **What you'll see:** an ordinary mob (sheep, pig, cow, villager, zombie and more) that never attacks and **keeps looking at you**.
+- **What you'll see:** a tall dark figure that appears where a [Disguised Shifter](#disguised-shifter) or [Shifted Player](#shifted-players) stood. It may stalk you from a distance, chase you down, or sniff you out.
 - **Danger: yes.** 250 hearts, its hits weaken you, and it blinds everyone nearby when it vanishes.
-- **What to do:** if a mob won't stop staring, back off. Stay within 3 blocks for 2 seconds (or hit it) and it reveals itself as a tall dark figure that may stalk, chase or sniff you out. Sneaking can help.
+- **What to do:** run, or fight it with a group and good gear. Sneaking can help.
 
 #### Shifted Players
 - **What you'll see:** a "player" in armor using a real player's name and skin (or one that's almost right), who walks up and stares.
