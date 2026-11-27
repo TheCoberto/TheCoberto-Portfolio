@@ -5,25 +5,136 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Kingdom of Crobus Wiki</title>
     <meta name="description" content="A player's guide to the Kingdom of Crobus Minecraft server">
+    <meta name="theme-color" content="#FFAA00">
     <link rel="icon" type="image/x-icon" href="images/mascot.png" />
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Pixelify+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        .wiki { text-align: left; line-height: 1.6; font-size: 1.05rem; }
-        .wiki h1 { text-align: center; }
-        .wiki h2 { margin-top: 2.2rem; padding-bottom: 6px; border-bottom: 1px solid rgba(200, 146, 249, 0.3); }
-        .wiki h3 { margin-top: 1.4rem; }
-        .wiki p, .wiki li { color: #e6dcf2; }
-        .wiki strong { color: rgb(200, 146, 249); }
-        .wiki a { color: rgb(200, 146, 249); }
-        .wiki code { background: rgba(200, 146, 249, 0.12); padding: 1px 6px; border-radius: 4px; font-size: 0.95em; color: #f1e6ff; }
-        .wiki .table-wrap { overflow-x: auto; margin: 1rem 0; }
-        .wiki table { border-collapse: collapse; width: 100%; font-size: 0.95rem; }
-        .wiki th, .wiki td { border: 1px solid rgba(200, 146, 249, 0.25); padding: 8px 10px; text-align: left; vertical-align: top; color: #e6dcf2; }
-        .wiki th { background: rgba(200, 146, 249, 0.12); color: rgb(200, 146, 249); }
-        .toc { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 10px 0 24px; }
-        .toc a { padding: 4px 12px; border: 1px solid rgba(200, 146, 249, 0.35); border-radius: 999px; text-decoration: none; color: rgb(200, 146, 249); font-size: 0.9rem; }
-        .toc a:hover { background: rgba(200, 146, 249, 0.12); }
-        @media (max-width: 600px) { .container { padding: 24px 16px; } .wiki { font-size: 1rem; } }
+        /* Minecraft formatting colors (§ codes) and Broken Crown gold */
+        :root {
+            --gold: #FFAA00;        /* §6 */
+            --gold-hi: #FFD866;
+            --gold-lo: #8a5a00;
+            --yellow: #FFFF55;      /* §e */
+            --red: #FF5555;         /* §c */
+            --dark-red: #AA0000;    /* §4 */
+            --blue: #5555FF;        /* §9 */
+            --aqua: #55FFFF;        /* §b */
+            --green: #55FF55;       /* §a */
+            --gray: #AAAAAA;        /* §7 */
+            --ink: #ece3cf;
+            --stone: #1b1916;
+            --stone-2: #26231e;
+            --stone-3: #332e26;
+            --edge: #0c0b09;
+        }
+        body {
+            background-color: var(--stone);
+            background-image:
+                linear-gradient(rgba(14,12,10,.86), rgba(14,12,10,.94)),
+                repeating-linear-gradient(0deg, transparent 0 15px, rgba(0,0,0,.35) 15px 16px),
+                repeating-linear-gradient(90deg, #2a2620 0 16px, #24211c 16px 32px);
+            color: var(--ink);
+        }
+        .top-nav a { font-family: 'Press Start 2P', monospace; font-size: .6rem; color: var(--gold); }
+        .container { max-width: 980px; }
+
+        /* Hero */
+        .hero {
+            position: relative; text-align: center; padding: 34px 18px 26px; margin-bottom: 18px;
+            background: linear-gradient(180deg, #2b2112, #17120b);
+            border: 4px solid var(--edge);
+            box-shadow: inset 0 0 0 3px var(--gold-lo), inset 0 0 0 6px #3d2c10, 0 10px 30px rgba(0,0,0,.6);
+            overflow: hidden;
+        }
+        .hero::before, .hero::after {
+            content: '⚔'; position: absolute; top: 50%; transform: translateY(-50%);
+            font-size: 7rem; color: rgba(255,170,0,.07); line-height: 1;
+        }
+        .hero::before { left: 14px; } .hero::after { right: 14px; }
+        .crown { width: 96px; height: auto; image-rendering: pixelated; filter: drop-shadow(0 4px 0 #000); }
+        .hero h1 {
+            font-family: 'Press Start 2P', monospace; font-size: clamp(1.15rem, 4.2vw, 2.1rem);
+            color: var(--gold); margin: 14px 0 8px; letter-spacing: 2px; line-height: 1.35;
+            text-shadow: 3px 3px 0 #3f2a00, 0 0 18px rgba(255,170,0,.35);
+        }
+        .hero .sub { font-family: 'VT323', monospace; font-size: 1.5rem; color: var(--yellow); text-shadow: 2px 2px 0 #3f3f15; margin: 0; }
+        .hero .motto { font-family: 'VT323', monospace; font-size: 1.25rem; color: var(--gray); margin: 4px 0 18px; }
+        .ip {
+            display: inline-flex; align-items: center; gap: 10px; cursor: pointer;
+            font-family: 'VT323', monospace; font-size: 1.45rem; color: #fff;
+            background: #111; border: 3px solid #000; padding: 6px 16px;
+            box-shadow: inset 0 0 0 2px #555;
+        }
+        .ip b { color: var(--green); font-weight: normal; }
+        .ip:hover { box-shadow: inset 0 0 0 2px var(--gold); }
+        .ip small { font-size: 1rem; color: var(--gray); }
+        .banners { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 18px; }
+        .banner {
+            font-family: 'Press Start 2P', monospace; font-size: .55rem; padding: 8px 10px; color: #fff;
+            border: 3px solid #000; text-shadow: 1px 1px 0 #000;
+        }
+        .banner.azure { background: #23237a; box-shadow: inset 0 0 0 2px var(--blue); }
+        .banner.verdant { background: #1d5a1d; box-shadow: inset 0 0 0 2px var(--green); }
+        .banner.crimson { background: #6a0f0f; box-shadow: inset 0 0 0 2px var(--red); }
+
+        /* Section buttons: Minecraft GUI buttons */
+        .toc { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin: 0 0 22px; }
+        .toc a {
+            font-family: 'Pixelify Sans', sans-serif; font-size: .92rem; text-decoration: none; color: #fff;
+            padding: 6px 12px; background: #6f6f6f; border: 2px solid #000;
+            box-shadow: inset 2px 2px 0 #a9a9a9, inset -2px -2px 0 #4a4a4a; text-shadow: 2px 2px 0 #3f3f3f;
+        }
+        .toc a:hover { background: #7f86b8; color: var(--yellow); box-shadow: inset 2px 2px 0 #b9c0f0, inset -2px -2px 0 #4a507a; }
+        .toc a.pvp { background: #7a2424; box-shadow: inset 2px 2px 0 #c24d4d, inset -2px -2px 0 #4a1212; }
+
+        /* Article */
+        .wiki { text-align: left; font-family: 'Pixelify Sans', sans-serif; font-size: 1.08rem; line-height: 1.6; }
+        .wiki > h1 { display: none; }
+        .wiki section {
+            background: rgba(20,18,15,.92); border: 3px solid var(--edge); margin: 0 0 20px; padding: 4px 22px 16px;
+            box-shadow: inset 0 0 0 2px #3a342a;
+        }
+        .wiki section.pvp { box-shadow: inset 0 0 0 2px #5a1a1a; background: linear-gradient(180deg, rgba(60,10,10,.55), rgba(20,18,15,.92) 140px); }
+        .wiki h2 {
+            font-family: 'Press Start 2P', monospace; font-size: clamp(.85rem, 2.6vw, 1.05rem); line-height: 1.5;
+            color: var(--gold); text-shadow: 2px 2px 0 #3f2a00; margin: 18px 0 14px; padding-bottom: 12px;
+            border-bottom: 3px solid; border-image: linear-gradient(90deg, var(--gold), transparent) 1;
+        }
+        .wiki section.pvp h2 { color: var(--red); text-shadow: 2px 2px 0 #3f1515; border-image: linear-gradient(90deg, var(--red), transparent) 1; }
+        .wiki h2 .ico { margin-right: 10px; text-shadow: none; }
+        .wiki h3 { font-family: 'VT323', monospace; font-size: 1.6rem; color: var(--yellow); margin: 20px 0 6px; text-shadow: 2px 2px 0 #3f3f15; }
+        .wiki p, .wiki li { color: var(--ink); }
+        .wiki li::marker { color: var(--gold); }
+        .wiki strong { color: var(--gold-hi); font-weight: 600; }
+        .wiki a { color: var(--aqua); }
+        .wiki code {
+            font-family: 'VT323', monospace; font-size: 1.2em; color: var(--yellow);
+            background: rgba(0,0,0,.55); padding: 0 6px; border: 1px solid #000;
+        }
+        .wiki .table-wrap { overflow-x: auto; margin: 1rem 0; border: 3px solid #000; box-shadow: inset 0 0 0 2px #4a4334; }
+        .wiki table { border-collapse: collapse; width: 100%; font-size: 1rem; }
+        .wiki th, .wiki td { border: 1px solid #3a342a; padding: 8px 10px; text-align: left; vertical-align: top; color: var(--ink); }
+        .wiki th { background: #3b2c10; color: var(--gold); font-family: 'VT323', monospace; font-size: 1.3rem; font-weight: normal; }
+        .wiki tr:nth-child(even) td { background: rgba(255,255,255,.025); }
+        .wiki section.pvp th { background: #3d1414; color: var(--red); }
+
+        /* Factions in Minecraft colors */
+        .f-azure { color: var(--blue) !important; font-weight: 600; text-shadow: 1px 1px 0 #15153f; }
+        .f-verdant { color: var(--green) !important; font-weight: 600; text-shadow: 1px 1px 0 #153f15; }
+        .f-crimson { color: var(--red) !important; font-weight: 600; text-shadow: 1px 1px 0 #3f1515; }
+        .tag-fight { color: var(--red); } .tag-peace { color: var(--green); }
+
+        .wiki-foot { text-align: center; font-family: 'VT323', monospace; font-size: 1.2rem; color: var(--gray); margin: 10px 0 30px; }
+        .wiki-foot span { color: var(--gold); }
+
+        @media (max-width: 600px) {
+            .container { padding: 24px 16px; }
+            .wiki section { padding: 2px 14px 12px; }
+            .hero::before, .hero::after { font-size: 4rem; }
+        }
     </style>
 </head>
 
@@ -31,35 +142,111 @@
 
     <nav class="top-nav">
         <a href="index.html">Home</a>
+        <a href="broken_crown.html">Kingdom</a>
         <a href="discord.html">Discord</a>
         <a href="mods.html">Mods</a>
     </nav>
 
 <main class="container">
+    <header class="hero">
+        <svg class="crown" viewBox="0 0 16 12" aria-hidden="true" shape-rendering="crispEdges">
+            <!-- pixel broken crown -->
+            <path fill="#8a5a00" d="M1 11h14v1H1z"/>
+            <path fill="#FFAA00" d="M1 4h2v1h1v1h1V3h2v3h1V2h1v4h1V3h2v3h1V5h1V4h1v7H1z"/>
+            <path fill="#FFD866" d="M2 5h1v5H2zM8 3h1v2H8z"/>
+            <path fill="#1b1916" d="M9 6h1v1H9zM10 7h1v1h-1zM9 8h1v1H9zM10 9h1v2h-1z"/>
+            <path fill="#FF5555" d="M4 8h1v1H4z"/><path fill="#5555FF" d="M7 8h2v1H7z"/><path fill="#55FF55" d="M12 8h1v1h-1z"/>
+        </svg>
+        <h1>KINGDOM OF CROBUS</h1>
+        <p class="sub">⚔ The Official Player Wiki ⚔</p>
+        <p class="motto">Claim your land. Pick your side. Wear the broken crown.</p>
+        <div class="ip" id="ip" title="Copy the server address">
+            <b>▶</b> crobus.minecraft.best <small id="ipnote">click to copy</small>
+        </div>
+        <div class="banners">
+            <span class="banner azure">🔵 AZURE ORDER</span>
+            <span class="banner verdant">🟢 VERDANT SYNDICATE</span>
+            <span class="banner crimson">🔴 CRIMSON DOMINION</span>
+        </div>
+    </header>
+
     <nav class="toc" id="toc" aria-label="Sections"></nav>
     <article class="wiki" id="wiki"><p>Loading the wiki…</p></article>
+    <p class="wiki-foot">Long live the <span>Kingdom of Crobus</span>. Java &amp; Bedrock · One world.</p>
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
 <script>
     // The wiki text lives in wiki/crobus.md, copied from the server repo by publish-wiki.ps1.
+    // Each ## heading becomes its own panel; combat sections get the red PvP look.
+    const ICONS = {
+        'welcome': '👑', 'rules': '📜', 'joining': '🚪', 'locations': '🏰', 'getting-around': '🧭',
+        'land-claims': '🛡', 'money': '💰', 'pvp': '⚔', 'factions': '🚩', 'out-in-the-world': '🌲',
+        'mystical-slots': '🎰', 'parkour': '🏃', 'skeleton-variants': '💀', 'whispers': '👁',
+        'drinks': '🧪', 'handy-commands': '⌨', 'classes': '🗡', 'faction-traits': '⚜',
+        'graves': '🪦', 'discord': '💬', 'coming-soon': '⏳'
+    };
+    const PVP = ['pvp', 'factions', 'classes', 'faction-traits', 'skeleton-variants', 'whispers', 'graves'];
+    const pick = (id, map) => Object.keys(map).find(k => id.startsWith(k));
+
+    document.getElementById('ip').addEventListener('click', () => {
+        const note = document.getElementById('ipnote');
+        navigator.clipboard?.writeText('crobus.minecraft.best')
+            .then(() => { note.textContent = 'copied!'; setTimeout(() => note.textContent = 'click to copy', 1500); })
+            .catch(() => {});
+    });
+
     fetch('wiki/crobus.md', { cache: 'no-cache' })
         .then(r => { if (!r.ok) throw new Error(r.status); return r.text(); })
         .then(md => {
             const wiki = document.getElementById('wiki');
             wiki.innerHTML = marked.parse(md);
+
             wiki.querySelectorAll('table').forEach(t => {
                 const wrap = document.createElement('div');
                 wrap.className = 'table-wrap';
                 t.replaceWith(wrap);
                 wrap.appendChild(t);
             });
+
+            // Faction names in their Minecraft colors.
+            const walker = document.createTreeWalker(wiki, NodeFilter.SHOW_TEXT);
+            const hits = [];
+            while (walker.nextNode()) if (/Azure Order|Verdant Syndicate|Crimson Dominion|\bFighters?\b|\bPeaceful\b/.test(walker.currentNode.nodeValue)) hits.push(walker.currentNode);
+            hits.forEach(n => {
+                if (n.parentElement.closest('code')) return;
+                const span = document.createElement('span');
+                span.innerHTML = n.nodeValue.replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]))
+                    .replace(/Azure Order/g, '<span class="f-azure">Azure Order</span>')
+                    .replace(/Verdant Syndicate/g, '<span class="f-verdant">Verdant Syndicate</span>')
+                    .replace(/Crimson Dominion/g, '<span class="f-crimson">Crimson Dominion</span>')
+                    .replace(/\b(Fighters?)\b/g, '<span class="tag-fight">$1</span>')
+                    .replace(/\bPeaceful\b/g, '<span class="tag-peace">Peaceful</span>');
+                n.replaceWith(...span.childNodes);
+            });
+
+            // Wrap each ## heading and what follows it in a panel.
             const toc = document.getElementById('toc');
-            wiki.querySelectorAll('h2').forEach(h => {
-                h.id = h.textContent.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+            [...wiki.querySelectorAll('h2')].forEach(h => {
+                const id = h.textContent.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+                const section = document.createElement('section');
+                section.id = id;
+                const isPvp = PVP.some(p => id.startsWith(p));
+                if (isPvp) section.classList.add('pvp');
+                h.before(section);
+                let next = h.nextSibling;
+                section.appendChild(h);
+                while (next && !(next.nodeName === 'H2')) { const n = next.nextSibling; section.appendChild(next); next = n; }
+
+                const icon = ICONS[pick(id, ICONS)] || '◆';
+                const ico = document.createElement('span');
+                ico.className = 'ico'; ico.textContent = icon;
+                h.prepend(ico);
+
                 const a = document.createElement('a');
-                a.href = '#' + h.id;
-                a.textContent = h.textContent;
+                a.href = '#' + id;
+                a.textContent = icon + ' ' + h.textContent.replace(icon, '').trim();
+                if (isPvp) a.className = 'pvp';
                 toc.appendChild(a);
             });
             if (location.hash) document.querySelector(location.hash)?.scrollIntoView();
