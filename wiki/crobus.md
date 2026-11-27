@@ -449,7 +449,7 @@ Very rarely (about 1 in 1,000), a creeper or skeleton spawning in the overworld 
 ### Discord
 In-game chat and the Discord chat channel are linked, so you can talk to players from your phone. Discord also has the Kingdom Board (factions and clans), the Market (shop news and trades), the Leaderboard, and the live map link. The same rules apply in both places.
 
-**Link your account:** type `/discord link` in game, then paste the code in **#link-your-account** on Discord (or DM the bot). The code is deleted after a few seconds; you stay linked. You get **$1,000** once, and your faction's Discord role, which opens your faction's private channels. If you switch factions, your role switches too. Java and Bedrock players can both link.
+**Link your account:** type `/discord link` in game, then paste the code in **#link-your-account** on Discord. The code is deleted after a few seconds; you stay linked. You get **$1,000** once, and your faction's Discord role, which opens your faction's private channels. If you switch factions, your role switches too. Java and Bedrock players can both link.
 
 ### Voice Chat
 The server supports **proximity voice chat**: you hear players near you, and they get quieter the farther away they are. It's optional.
