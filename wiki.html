@@ -126,6 +126,9 @@
         .f-verdant { color: var(--green) !important; font-weight: 600; text-shadow: 1px 1px 0 #153f15; }
         .f-crimson { color: var(--red) !important; font-weight: 600; text-shadow: 1px 1px 0 #3f1515; }
         .tag-fight { color: var(--red); } .tag-peace { color: var(--green); }
+        /* Pixelify Sans draws 2 and 5 oddly; numbers use VT323 instead. */
+        .num { font-family: 'VT323', monospace; font-size: 1.25em; line-height: 1; }
+        .wiki th .num, .wiki code .num { font-size: 1em; }
 
         .wiki-foot { text-align: center; font-family: 'VT323', monospace; font-size: 1.2rem; color: var(--gray); margin: 10px 0 30px; }
         .wiki-foot span { color: var(--gold); }
@@ -225,6 +228,21 @@
                     .replace(/\b(Fighters?)\b/g, '<span class="tag-fight">$1</span>')
                     .replace(/\bPeaceful\b/g, '<span class="tag-peace">Peaceful</span>');
                 n.replaceWith(...span.childNodes);
+            });
+
+            // Numbers in a font where 2 and 5 look right (headings keep their pixel font).
+            const nw = document.createTreeWalker(wiki, NodeFilter.SHOW_TEXT);
+            const nums = [];
+            while (nw.nextNode()) if (/\d/.test(nw.currentNode.nodeValue)) nums.push(nw.currentNode);
+            nums.forEach(n => {
+                if (n.parentElement.closest('code, h1, h2')) return;
+                const frag = document.createDocumentFragment();
+                n.nodeValue.split(/(\d[\d,.]*)/).forEach((part, i) => {
+                    if (!part) return;
+                    if (i % 2) { const s = document.createElement('span'); s.className = 'num'; s.textContent = part; frag.appendChild(s); }
+                    else frag.appendChild(document.createTextNode(part));
+                });
+                n.replaceWith(frag);
             });
 
             // Wrap each ## heading and what follows it in a panel.
