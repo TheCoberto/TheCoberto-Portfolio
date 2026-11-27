@@ -185,6 +185,24 @@ Reach **Miner level 25** in [Jobs](#jobs) and you unlock vein mining: break one 
 
 **PvP tip:** a Flight Token is a great escape, but you can still be shot down. Landing in enemy territory with 10 seconds left is a classic way to lose your gear.
 
+### Black Market
+Some goods you won't find in the [Server Shop](#server-shop). **Shady Pete** deals them, and he only comes out **at night**.
+
+- **At dusk** he appears in a puff of smoke at a secret spot somewhere in the world, and chat drops a hint: *Word is Shady Pete has been seen near...*
+- **At sunrise** he vanishes in smoke and turns up at a **different spot** the next night. Sleep through the night and he's gone too.
+- **Right-click** him to open his shop. Missed the hint? Type `/blackmarket` (`/bm`).
+- Each night he brings **3 or 4** of the goods below. Stock is limited and **shared by the whole server**: when it's gone, it's gone until the next night.
+- He's a crook: now and then you pay and get a **bag of dirt** instead. No refunds. (He never pulls that on the Bootleg Elytra.)
+
+| Item | Price | What it does |
+|---|---|---|
+| **Moonshine** | $1,500 | Strength II and Speed II for 60 seconds. Then the hangover: nausea and slowness |
+| **Shiv** | $2,500 | An iron sword with **Sharpness VI** that breaks after about 20 hits. Can't be repaired |
+| **Smoke Bomb** | $800 | Throw it: everyone nearby is blinded and slowed in a cloud of smoke |
+| **Mystery Brew** | $500 | A random effect. Could be speed or regeneration... or poison or levitation |
+| **Counterfeit Money** | $100 | A crisp "$1,000 bill" that's worth nothing. Great for pranks |
+| **Bootleg Elytra** | $25,000 | Rare: only some nights, and only one. A quarter of the usual durability, and it can't be repaired or mended |
+
 ### VIP Perks
 
 VIPs get more out of the same game: no pay-to-win weapons or armor.
@@ -324,6 +342,8 @@ Each faction has small perks and one drawback. They follow your faction, so swit
 
 #### Clans
 Player-made groups for friends and allies (`/clan`). Make your own, invite members, pick a tag, and track kills, deaths and KDR. Clans can ally or become rivals, and clan battles are organized by players.
+
+A clan is deleted after **90 days** with none of its members online, and a player's clan data after 90 days away. A deleted clan isn't gone for good: **any member** can bring it back with `/clanrestore` and becomes its leader. The old leaders come back as leaders, and old members who aren't in another clan rejoin with their ranks, allies, rivals, clan home and founding date. The bank starts empty. If you had a clan that was deleted, you're reminded when you join, with a **[Restore]** button. A clan its players **disbanded** can only be restored by one of its old leaders.
 
 ### Graves
 When you die, your items go into a **grave** where you died instead of spilling on the ground, safe from lava, despawning and other players. Only you can open it. Graves last **3 hours** ([VIPs](#vip-perks) get 12), then they're gone with everything inside, so head back quickly (and watch out for whatever got you).
@@ -472,6 +492,7 @@ Right-click a **compass** to open a menu of the most-used commands (Java and Bed
 | Command | What it does |
 |---|---|
 | `/whatsnew` | What's in the latest update |
+| `/sellxp` | Sell XP levels to the [XP Trader](#xp-trader) |
 | `/class` | Pick a [class](#classes) (you can change again after 5 minutes) |
 | `/pvpmenu` | [Peaceful or Fighter](#pvp-peaceful-or-fighter) |
 | `/newbie disable` | Ends your [Newbie Protection](#newbie-protection) early (can't be undone) |
@@ -502,6 +523,7 @@ Right-click a **compass** to open a menu of the most-used commands (Java and Bed
 | `/jobs leave <job>` | Quit a job |
 | `/sellxp <levels>` | Sell XP levels to the [XP Trader](#xp-trader) ($10 each, 50 a day). `/sellxp` alone shows what's left today |
 | `/slotstop` | [Slots](#mystical-slots) leaderboard |
+| `/blackmarket` (`/bm`) | Where the [Black Market](#black-market) dealer was last seen |
 
 ### Claims, Clans and Games Commands
 | Command | What it does |
@@ -512,6 +534,7 @@ Right-click a **compass** to open a menu of the most-used commands (Java and Bed
 | `/claimslist` | Your claims and how many claim blocks you have left |
 | `/abandonclaim` | Delete the claim you're standing in |
 | `/clan` | [Clan](#clans) menu: make, join and manage clans |
+| `/clanrestore` | Bring back a deleted [clan](#clans) you were in. You become its leader |
 | `/pa leave` | Leave a [parkour](#parkour) course |
 
 ### Inventory and Tools Commands
