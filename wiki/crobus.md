@@ -73,6 +73,12 @@ Claims protect your builds: inside one, nobody else can break or place blocks, o
 - Not sure? Start with the lower trust level. Giving `/trust` to the wrong player can cost you your base.
 - Claims don't turn PvP off. That depends on whether you're Peaceful or a Fighter.
 
+**Your claim also protects against the sneaky stuff:**
+- Players you haven't trusted **can't drive boats or minecarts into your claim**, and can't scoop your animals or pets into one to carry them off.
+- They **can't leash or unleash** mobs standing in your claim.
+- **Books on lecterns** can be read by anyone but taken by nobody but you.
+- **Every block is logged.** If something in your claim gets broken anyway, tell staff: they can see who did it and roll it back.
+
 ## Money
 - `/bal` shows your balance. Ways to earn: **Jobs**, **Daily Rewards**, selling to the shop, trading with players, and winning parkour courses.
 - **Server Shop** (`/shop`): buy and sell at server prices. Some items have limited stock that restocks over time. Prices move with supply and demand: selling lots of an item lowers its sell price by up to 20% (Ores hold their price longest; Farming, Mobs, iron and gold drop faster), and prices slowly drift back over a few hours.
@@ -92,6 +98,28 @@ Claims protect your builds: inside one, nobody else can break or place blocks, o
 - **Daily Rewards**: claim free money and items every day, week and month from the rewards menu. VIPs get bigger rewards. Make room in your inventory first.
 - **Death Tax**: every death costs **1%** of your balance, however you die. It's gone for good, not given to anyone.
 - **Mystical Slots** at The Oasis: the house keeps about 6.5% over time, so play for fun.
+
+## Vein Miner
+Reach **Miner level 25** in Jobs and you unlock vein mining: break one ore and the **whole vein** comes with it, up to 64 blocks. You'll get a message when it unlocks.
+- `/veinminer` (`/vm`) turns it on or off. It's off until you turn it on.
+- Works with an **iron, gold, diamond or netherite pickaxe**, on every ore: coal, copper, iron, gold, redstone, lapis, diamond, emerald, Nether quartz, Nether gold and **ancient debris**.
+- **Sneak** while mining to break just one block.
+- Every block still costs durability, so bring a pickaxe with Unbreaking or Mending. Fortune and Silk Touch apply to the whole vein.
+
+## Special Items
+| Item | Where to get it | What it does |
+|---|---|---|
+| **Ancient Flight Token** | Server Shop, **$100,000**. Only 2 in stock for the whole server, restocking every 12 hours | Right-click for **15 minutes of flight**, anywhere. One at a time, and not on parkour courses. It keeps counting if you log out or change worlds |
+| **Rain Dance Artifact** | Server Shop ($7,500), or sometimes the Magic Shop ($5,000) | Right-click to summon a **thunderstorm for the whole server**. Used up on use. Perfect for charged creepers, tridents, and ruining everyone's day |
+
+**PvP tip:** a Flight Token is a great escape, but you can still be shot down. Landing in enemy territory with 10 seconds left is a classic way to lose your gear.
+
+## Voice Chat
+The server supports **proximity voice chat**: you hear players near you, and they get quieter the farther away they are. It's optional.
+- **Java only.** Install the **Simple Voice Chat** mod (Fabric, Forge, NeoForge or Quilt, from Modrinth or CurseForge) for your Minecraft version, then join as normal.
+- Press **V** to open the voice chat menu: pick your microphone, set push-to-talk or voice activation, and mute players.
+- You can make **groups** in the menu to talk to friends anywhere on the map.
+- Bedrock players can't use it, so don't plan a raid where your Bedrock teammates can't hear you. Use Discord instead.
 
 ## PvP: Peaceful or Fighter
 - You choose when you first join. Change it any time with `/pvpmenu` or the shield in the faction menu.
@@ -265,6 +293,7 @@ Right-click a **compass** to open a menu of the most-used commands (Java and Bed
 | `/chestsort` | Sorting settings: sort key, automatic sorting, quick transfer |
 | `/lumberjack` (`/lj`) | Whole-tree chopping on or off (on by default; sneak to chop one log) |
 | `/refill` (`/rf`) | Hotbar refill on or off: empty hotbar slots refill from your inventory (off by default) |
+| `/veinminer` (`/vm`) | Vein mining on or off (unlocks at Miner level 25) |
 | `/bt` | Best Tools on or off: switches to the best tool for what you're breaking (off by default) |
 
 ## Classes
@@ -304,6 +333,72 @@ When you die, your items go into a **grave** where you died instead of spilling 
 
 ## Discord
 In-game chat and the Discord chat channel are linked, so you can talk to players from your phone. Discord also has the Kingdom Board (factions and clans), the Market (shop news and trades), the Leaderboard, and the live map link. The same rules apply in both places.
+
+## Pets
+Tamed wolves, cats, parrots and other pets get extra care here.
+- **Sneak and double-click your pet** to open its **pet menu**.
+
+- **Wolves stay out of creeper fights**: they won't attack creepers, so they won't get blown up next to you.
+- Cats don't chase monsters, so they stay put in your base.
+- Pets in your claim are protected: untrusted players can't leash them or ride off with them in a boat. Outside a claim, a Fighter can still hurt them, so keep your best dog at home before heading into PvP.
+
+## Skins
+Your skin carries over from your Minecraft account automatically. To wear a different one:
+- `/skin <player name>`: copy any Minecraft player's skin, like `/skin Notch`.
+- `/skin <url>`: use a skin image from the web.
+- `/skin clear`: back to your own skin.
+- `/skins`: a menu of skins to pick from.
+
+Other players see the change straight away (you may need to rejoin to see it yourself). Pretending to be a staff member or another player to trick people breaks rule 1.
+
+## Stats
+Look up stats for yourself, anyone else, or the whole server, from blocks mined to players killed. Results show in chat and can be shared with a click.
+- `/stat` opens the stats help.
+- `/stat <statistic> me`: your own, like `/stat player_kills me`.
+- `/stat <statistic> player <name>`: someone else's.
+- `/stat <statistic> top`: the server top 10, like `/stat deaths top` or `/stat mine_block diamond_ore top`.
+- `/stat <statistic> server`: the server total.
+
+Press **Tab** while typing to see every statistic. Good PvP ones: `player_kills`, `deaths`, `damage_dealt`, `damage_taken`. The **Leaderboard** channel on Discord shows the server's top players too.
+
+## VIP Perks
+
+VIPs get more out of the same game: no pay-to-win weapons or armor.
+
+| Perk | Everyone | VIP |
+|---|---|---|
+| Homes | 5 | **20** |
+| Daily Reward | $250, 12 cooked beef, 6 XP bottles | **$500**, 20 cooked beef, 12 XP bottles, **6 golden carrots** |
+| Weekly Reward | $500, 24 XP bottles, 1 golden apple, 4 ender pearls | **$1,000**, 48 XP bottles, 2 golden apples, 8 ender pearls, **12 firework rockets** |
+| Monthly Reward | $1,000, 64 XP bottles, 1 Totem of Undying, 1 name tag | **$2,000**, 128 XP bottles, **2 Totems of Undying**, 2 name tags, **a shulker box** |
+| Server Shop prices | Normal | **5% off** everything |
+| Selling to the Server Shop | Normal | **5% more** for everything |
+| Graves last | 3 hours | **12 hours** |
+
+## FAQ
+**I died. Where are my items?**
+In your **grave**, right where you died. Only you can open it, and it lasts 3 hours. Bring armor: whatever killed you may still be there. You also lost 1% of your balance to the Death Tax.
+
+**Someone griefed or robbed my base!**
+If it was **inside your claim**, tell staff: every block is logged and can be rolled back. If it was **outside a claim**, it's allowed (rule 4), and it can't be undone. Claim everything you care about with a golden shovel.
+
+**Someone killed me, and I'm Peaceful!**
+Peaceful players can't be hurt by other players at all, so check `/pvpmenu`. If you couldn't pay the hourly $100 Civilian tax, you were switched to Fighter. Mobs, lava and fall damage still count.
+
+**How do I make money fast?**
+Join one or two jobs and stick with them. Mine with Vein Miner once you hit Miner level 25, claim your Daily Rewards, finish the parkour courses (Fred pays $4,500), and sell to players on the Auction House for more than the shop pays.
+
+**I'm on Bedrock and can't join.**
+Use the address with port **19132**. On Xbox, PlayStation or Switch, add **KingdomCrobus** as a friend and join from **Joinable Friends** (see **Joining**). Make sure your game is up to date.
+
+**Why can't I hurt that player?**
+They're Peaceful, still under Newbie Protection, or you're in a safe zone (The Oasis, the Ice Bridge, Nether spawn).
+
+**Do loot chests get emptied by whoever finds them first?**
+No. Every player gets **their own loot** from dungeon and structure chests, so you can still loot a structure someone else already raided.
+
+**How do I report a cheater?**
+Tell staff on Discord, with a screenshot or clip if you can. The server also runs anti-cheat, and **X-ray doesn't work here**: hidden ores show up as stone until you're right next to them.
 
 ## Coming Soon
 - **Activity Rewards**: earn money for time spent playing (not while AFK).
