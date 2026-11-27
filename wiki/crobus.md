@@ -56,6 +56,7 @@ The heart of the server, where everyone starts.
 - **Beverage Stand**: the bartender sells Mugs ($100), Milk, Honey and Strength, and the fountain pours any drink into an empty Mug. See [Drinks](#drinks).
 - **Soda Machine**: Soda, Strong Soda and Extended Soda.
 - **Music Selector**: pay to queue a song for everyone nearby.
+- **XP Trader**: sell your XP levels for $10 each, up to 50 a day. See [XP Trader](#xp-trader).
 - **NPCs**: the Guide and the Welcoming Crew Member for new players, the Warps NPC, the Royal Guards, and the faction leaders (Azure, Verdant, Crimson).
 
 #### Practice Area
@@ -126,7 +127,7 @@ Claims don't turn PvP off. That depends on whether you're [Peaceful or a Fighter
 ## Money and Items
 
 ### Earning Money
-`/bal` shows your balance and `/baltop` the richest players. Ways to earn: [Jobs](#jobs), [Daily Rewards](#daily-rewards), selling to the [Server Shop](#server-shop), trading with players on the [Auction House](#auction-house) or in [Player Shops](#player-shops), and winning [Parkour](#parkour) courses. `/pay <player> <amount>` sends money to someone.
+`/bal` shows your balance and `/baltop` the richest players. Ways to earn: [Jobs](#jobs), [Daily Rewards](#daily-rewards), selling to the [Server Shop](#server-shop), trading with players on the [Auction House](#auction-house) or in [Player Shops](#player-shops), selling XP to the [XP Trader](#xp-trader), and winning [Parkour](#parkour) courses. `/pay <player> <amount>` sends money to someone.
 
 ### Jobs
 Jobs pay you for normal play: mining, farming, chopping, hunting, fishing and more. The more you work, the higher your level and the better the pay.
@@ -157,6 +158,11 @@ Put a sign on a chest to run your own shop (ChestShop):
 | 4 | The item, like `DIAMOND` |
 
 Keep your shop stocked and labeled clearly, and don't block public shop areas.
+
+### XP Trader
+Talk to the XP Trader at [The Oasis](#the-oasis-spawn) (or type `/xptrader`) to sell XP levels for **$10 a level**, up to **50 levels a day**. The menu sells 1, 5 or 10 levels; `/sellxp <levels>` sells any amount from anywhere, and `/sellxp` on its own shows how many you can still sell today. The limit resets at midnight (server time).
+
+Levels come off the top, and every level pays the same, so high levels take much more XP for the same $10. Sell before you climb, and keep what you need for enchanting.
 
 ### Daily Rewards
 Claim free money and items every day, week and month from the rewards menu. [VIPs](#vip-perks) get bigger rewards. Make room in your inventory first.
@@ -305,6 +311,8 @@ You can be in a faction **and** a clan: the faction is the big picture, the clan
 #### Factions
 The three big powers of the kingdom, made and run by the server: 🔵 Azure Order, 🟢 Verdant Syndicate and 🔴 Crimson Dominion. Pick one in the faction menu (compass menu → **Factions**, or `/faction_select`) or by talking to a faction leader, and each has its own [traits](#faction-traits). Your first pick is free; after that, switching costs **$1000** and you wait **5 minutes** between changes. Faction changes may be locked during faction events. Faction wars, tournaments and events are run by the server.
 
+To see who's in a faction, right-click its banner in the faction menu, or type `/factionmembers <azure|verdant|crimson>` (`/fmembers`). Online members show first.
+
 #### Faction Traits
 Each faction has small perks and one drawback. They follow your faction, so switching factions switches traits.
 
@@ -327,7 +335,7 @@ When you die, your items go into a **grave** where you died instead of spilling 
 - **Prank Buttons** are out in the wild. Push one at your own risk. They can't be broken or taken.
 - **Skeletons** aren't always just skeletons. See [Skeleton Variants](#skeleton-variants).
 - **Something watches you in the dark.** See [Whispers of the Void](#whispers-of-the-void).
-- **Event Bosses**: the **Mutant Creeper** and the **Skeleton King** only show up at server events.
+- **Bosses**: very rarely, a creeper or skeleton in the overworld turns out to be the **Mutant Creeper** or the **Skeleton King**. See [Bosses](#bosses).
 
 ### Skeleton Variants
 About **1 in 3 skeletons** that spawns is a variant. Each one wears colored leather armor (which it doesn't drop) and shows its name when you look at it. Variants only drop their bonus loot and XP when a player kills them, and **Looting** boosts every variant drop. Their explosions don't break blocks, so your base is safe from Creeper Archers.
@@ -406,10 +414,22 @@ The Shifter's hiding form: it looks exactly like an ordinary mob.
 - **Danger: no.**
 - **What to do:** go to bed. It only happens if you haven't slept in over a day.
 
+#### Bosses
+Very rarely (about 1 in 1,000), a creeper or skeleton spawning in the overworld is a boss instead. You'll hear a growl and see **Something big is nearby...** when one appears near you. They don't burn in the sun.
+
+| Boss | Health | Fights by | Rewards |
+|---|---|---|---|
+| **Mutant Creeper** | 200 | Huge explosions (much stronger than a creeper's) that it survives, then keeps coming | 6-14 gunpowder, 1-3 TNT, lots of XP |
+| **Skeleton King** | 250 | Shoots, slams anyone within 5 blocks, summons skeletons, enraged below half health | **Skeleton King's Crown** (enchanted), enchanted bow, bones, gold, lots of XP |
+
+> Bring friends. Fight the Mutant Creeper away from your base: its blasts break blocks.
+
 ## Community and Extras
 
 ### Discord
 In-game chat and the Discord chat channel are linked, so you can talk to players from your phone. Discord also has the Kingdom Board (factions and clans), the Market (shop news and trades), the Leaderboard, and the live map link. The same rules apply in both places.
+
+**Link your account:** type `/discord link` in game, then paste the code in **#link-your-account** on Discord (or DM the bot). The code is deleted after a few seconds; you stay linked. You get **$1,000** once, and your faction's Discord role, which opens your faction's private channels. If you switch factions, your role switches too. Java and Bedrock players can both link.
 
 ### Voice Chat
 The server supports **proximity voice chat**: you hear players near you, and they get quieter the farther away they are. It's optional.
@@ -446,7 +466,7 @@ Look up stats for yourself, anyone else, or the whole server, from blocks mined 
 Press **Tab** while typing to see every statistic. Good PvP ones: `player_kills`, `deaths`, `damage_dealt`, `damage_taken`. The **Leaderboard** channel on [Discord](#discord) shows the server's top players too.
 
 ## Handy Commands
-Right-click a **compass** to open a menu of the most-used commands (Java and Bedrock; operators sneak + right-click).
+Right-click a **compass** to open a menu of the most-used commands (Java and Bedrock; operators sneak + right-click). Holding a compass shows a reminder above your hotbar.
 
 ### General Commands
 | Command | What it does |
@@ -480,6 +500,7 @@ Right-click a **compass** to open a menu of the most-used commands (Java and Bed
 | `/jobs browse`, `/jobs join <job>` | See and join [jobs](#jobs) |
 | `/jobs stats` | Your job levels and progress |
 | `/jobs leave <job>` | Quit a job |
+| `/sellxp <levels>` | Sell XP levels to the [XP Trader](#xp-trader) ($10 each, 50 a day). `/sellxp` alone shows what's left today |
 | `/slotstop` | [Slots](#mystical-slots) leaderboard |
 
 ### Claims, Clans and Games Commands
