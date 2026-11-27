@@ -27,7 +27,8 @@ Java and Bedrock players share the same world, chat and economy. Bedrock players
 `/warp oasis` · `/spawn`
 
 The heart of the server, where everyone starts.
-- **Mystical Slots**: Slot Machines with Low Risk ($100) and High Roller ($10,000) bets. `/slotstop` shows the leaderboard.
+- **Mystical Slots**: Slot Machines with Low Risk ($100) and High Roller ($10,000) bets. See **Mystical Slots** below.
+- **Parkour**: the Puddle and Fred courses pay money when you finish. See **Parkour** below.
 - **Beverage Stand**: the bartender sells Mugs ($100), Milk, Honey and Strength, and the fountain pours any drink into an empty Mug.
 - **Soda Machine**: Soda, Strong Soda and Extended Soda.
 - **Music Selector**: pay to queue a song for everyone nearby.
@@ -90,7 +91,7 @@ Claims protect your builds: inside one, nobody else can break or place blocks, o
 - **Jobs** pay you for normal play: mining, farming, chopping, hunting, fishing and more. `/jobs browse` shows them and `/jobs join <job>` joins one. The more you work, the higher your level and the better the pay. Tip: stick to one or two jobs to level faster, then sell what you gather.
 - **Daily Rewards**: claim free money and items every day, week and month from the rewards menu. VIPs get bigger rewards. Make room in your inventory first.
 - **Death Tax**: every death costs **1%** of your balance, however you die. It's gone for good, not given to anyone.
-- **Mystical Slots** at The Oasis: the house keeps about 7% over time, so play for fun.
+- **Mystical Slots** at The Oasis: the house keeps about 6.5% over time, so play for fun.
 
 ## PvP: Peaceful or Fighter
 - You choose when you first join. Change it any time with `/pvpmenu` or the shield in the faction menu.
@@ -112,8 +113,83 @@ You can be in a faction **and** a clan: the faction is the big picture, the clan
 ## Out in the World
 - **Loot Crates** are hidden around the map. Open one for random loot; finding an Elytra or Heavy Core is announced to everyone. **Holiday Crates** show up for the holidays, and **Spooky Crates** too.
 - **Prank Buttons** are out in the wild. Push one at your own risk. They can't be broken or taken.
-- **Skeleton Variants**: about 1 in 3 skeletons is special (Candyman, Creeper Archer, Ooga, Nether King, Funky on full moons and more), with their own loot.
-- **Whispers of the Void**: the Shifter hides as ordinary mobs, eyes watch from the dark, and Herobrine lurks, staring and moving when you look away. Get too close and he vanishes.
+- **Skeleton Variants**: about 1 in 3 skeletons is special, with its own gear, attacks and loot. See **Skeleton Variants** below.
+- **Whispers of the Void**: things that stalk, hide and watch you in the dark. See **Whispers of the Void** below.
+
+## Mystical Slots
+`/warp oasis`
+
+Right-click a Slot Machine at The Oasis and pick a bet. Three reels each land on a number from 1 to 9, and **7 comes up three times as often as any other number**. The machine takes your bet first, then pays out:
+
+| Roll | Example | Chance | Low Risk ($100) | High Roller ($10,000) |
+|---|---|---|---|---|
+| **Jackpot**: 7 7 7 | 7 · 7 · 7 | 2.0% (1 in 49) | $1,777 | $177,777 |
+| **Triple**: any other three of a kind | 4 · 4 · 4 | 0.6% (1 in 166) | $1,000 | $100,000 |
+| **Pair**: two the same | 2 · 9 · 2 | 34.3% (about 1 in 3) | $150 | $15,000 |
+| No match | 1 · 5 · 8 | 63.1% | nothing | nothing |
+
+Yes, 7 7 7 really is more likely than any other triple: the 7s are loaded in its favor.
+
+**How fair is it?** On average a spin pays back about **93.5%** of your bet, so the house keeps about **6.5%** over time. That's about the same as a real casino slot machine and a bit worse than roulette, while real-life blackjack played well keeps only about 0.5–2%. Spin for fun, not to get rich: over 100 Low Risk spins ($10,000) you'd expect to come out about $650 down, but one lucky jackpot can flip that.
+
+- `/slotstop` shows the leaderboard: who's spent, won and hit the most.
+- Jackpots are announced to everyone.
+- You need the full bet in your balance to spin.
+
+## Parkour
+Courses near The Oasis pay money when you reach the finish. Step on the start to begin; checkpoints save your progress, so a fall sends you back to the last one instead of the start. There's no fall damage on the courses.
+
+| Course | Made by | Checkpoints | Prize | Difficulty |
+|---|---|---|---|---|
+| **Puddle** | DrCrobus | 2 | $250 | Easy: a good first course |
+| **Fred** | Ducky | 1 | $4,500 | Hard: big prize, tricky jumps |
+
+- **Prize cooldown**: you can win each course's prize once every **12 hours**. You can still run it as often as you like.
+- **Rules on a course**: no flying (Flight Tokens don't work, and starting a course turns token flight off), most commands are blocked, and mobs can't hurt you.
+- `/pa leave` quits the course you're on.
+- Finishing a course is announced to everyone, with your time.
+
+## Skeleton Variants
+About **1 in 3 skeletons** that spawns is a variant. Each one wears colored leather armor (which it doesn't drop) and shows its name when you look at it. Variants only drop their bonus loot and XP when a player kills them, and **Looting** boosts every variant drop.
+
+| Variant | How often | Health | Watch out for | Drops |
+|---|---|---|---|---|
+| Normal Skeleton | 2 in 3 | 10 hearts | Nothing new | Normal loot |
+| Candyman | 1 in 19 | 5 hearts | Fast. Its arrows give Levitation | 0-2 Levitation Arrows, 0-2 bones |
+| Enchanted Candyman | 1 in 38 | 10 hearts | Same as Candyman, more XP | 0-2 Levitation Arrows, 0-2 bones |
+| Enchanted Skeleton | 1 in 15 | 25 hearts | Very tough | 6 bones **or** an Infinity bow |
+| Creeper Archer | 1 in 25 | 10 hearts | Arrows explode | 1-2 gunpowder |
+| Enchanted Creeper Archer | 1 in 75 | 15 hearts | Throws Creeper Bombs | 1-2 gunpowder |
+| Ooga | 1 in 25 | 10 hearts | Very slow, but has a Power V bow | 1-4 emeralds |
+| Stray Marauder | 1 in 15 | 12.5 hearts | Fires bursts of five Slowness arrows | Normal loot |
+| Nether King | 1 in 38 | 20 hearts | Flaming arrows | 0-2 ender pearls, 0-1 blaze powder |
+| Funky | Full moon only, about 1 in 10 | 15 hearts | Harmless-looking: music notes when idle | 1-3 bones, 0-3 arrows, 35% chance of a music disc |
+
+Their explosions don't break blocks, so your base is safe from Creeper Archers.
+
+**Craft their gear** (at a crafting table):
+
+| Item | Recipe | What it does |
+|---|---|---|
+| Demolition Bow | Bow in the middle, 3 TNT down the left, 3 string down the right | Every arrow explodes |
+| Bow of Levitation | Bow in the middle, 3 blaze rods down the left, 3 blaze powder down the right | Arrows levitate what they hit |
+| Explosive Arrow | Feather, arrow, TNT in a row | Explodes, from any bow |
+| Levitation Arrow | Feather, arrow, blaze powder in a row | Levitates, from any bow |
+| Creeper Bomb | Top: iron, tripwire hook. Middle: iron, gunpowder, iron. Bottom: gunpowder, iron, gunpowder | Throw it like a snowball |
+
+## Whispers of the Void
+Something lives in the dark. None of these creatures are announced, and most of them never attack. They're here to make you look over your shoulder.
+
+| Creature | What you'll see | Dangerous? | What to do |
+|---|---|---|---|
+| **The Shifter** | An ordinary mob (sheep, pig, cow, villager, zombie and more) that never attacks and **keeps looking at you** | **Yes.** 250 hearts, hits weaken you, and it blinds everyone nearby when it vanishes | If a mob won't stop staring, back off. Stay within 3 blocks for 2 seconds (or hit it) and it reveals itself as a tall dark figure that may stalk, chase or sniff you out. Sneaking can help |
+| **Shifted Players** | A "player" in armor using a real player's name and skin (or one that's almost right), who walks up and stares | **Yes**, it's the Shifter | Check the name. Don't stand next to them |
+| **Shifter Presence** | Nothing, at first: whistles, knocks, footsteps, torches going out, for 30-60 seconds in the dark | Mostly scary. Maybe a jumpscare | Find some light and keep moving |
+| **Herobrine** | A figure 28-48 blocks away, watching. He moves when you look away, and freezes when you catch him | **No**, he never attacks | Look back at him if you dare. Walk within 7 blocks or hit him and he's gone. Torches near him go out |
+| **Eyes in the Dark** | Pale, blinking eyes in dark places | No | Walk within 12 blocks and they vanish |
+| **Staring Animals** | A herd of farm animals freezes and stares at you in total silence | No | Go to bed. It only happens if you haven't slept in over a day |
+
+Two bosses, the **Mutant Creeper** and the **Skeleton King**, only show up at server events.
 
 ## Drinks
 Brew an **Awkward Potion** with:
@@ -134,20 +210,62 @@ With a **Mug** (5 Bricks make 2):
 Craft a drink with **Glowstone** for a stronger version or **Redstone** for a longer one.
 
 ## Handy Commands
+Right-click a **compass** to open a menu of the most-used commands (Java and Bedrock; operators sneak + right-click).
+
+### General
 | Command | What it does |
 |---|---|
 | `/whatsnew` | What's in the latest update |
+| `/class` | Pick a class (you can change again after 5 minutes) |
 | `/pvpmenu` | Peaceful or Fighter |
+| `/newbie disable` | Ends your Newbie Protection early (can't be undone) |
+| `/msg <player> <message>` | Private message (`/r` replies) |
+| `/sit`, `/lay`, `/crawl` | Sit, lie down or crawl anywhere |
+
+### Travel
+| Command | What it does |
+|---|---|
+| `/spawn` | Back to The Oasis |
+| `/warp <name>` | Go to a warp: `oasis`, `practice`, `nether`, `end` |
+| `/sethome <name>`, `/home <name>` | Save a home, then go back to it |
+| `/homes`, `/delhome <name>` | List or delete your homes |
+| `/tpa <player>` | Ask to teleport to someone |
+| `/tpaccept`, `/tpdeny` | Accept or refuse a teleport request |
+| `/tpr` | Random safe teleport inside the world border |
+
+### Money and Trading
+| Command | What it does |
+|---|---|
+| `/bal` | Your balance |
+| `/baltop` | The richest players |
+| `/pay <player> <amount>` | Send money to someone |
+| `/shop` | Server Shop |
+| `/ah` | Auction House. Hold an item and `/ah sell <price>` to list it |
+| `/jobs browse`, `/jobs join <job>` | See and join jobs |
+| `/jobs stats` | Your job levels and progress |
+| `/jobs leave <job>` | Quit a job |
 | `/slotstop` | Slots leaderboard |
+
+### Claims, Clans and Games
+| Command | What it does |
+|---|---|
+| `/trust`, `/containertrust`, `/accesstrust <player>` | Let someone into your claim (see **Land Claims**) |
+| `/untrust <player>` | Take someone's access away |
+| `/trustlist` | Who's trusted in the claim you're standing in |
+| `/claimslist` | Your claims and how many claim blocks you have left |
+| `/abandonclaim` | Delete the claim you're standing in |
+| `/clan` | Clan menu: make, join and manage clans |
+| `/pa leave` | Leave a parkour course |
+
+### Inventory and Tools
+| Command | What it does |
+|---|---|
 | `/unload` | Puts items into nearby chests that already hold them |
 | `/dump` | Empties your inventory (not hotbar or armor) into nearby chests |
-| `/chestsort` | Chest and inventory sorting settings: sort key, automatic sorting, quick transfer |
-| `/lumberjack` (`/lj`) | Turns whole-tree chopping on or off (on by default; sneak to chop one log) |
-| `/bal` | Your balance |
-| `/refill` (`/rf`) | Turns hotbar refill on or off: empty hotbar slots refill from your inventory (off by default) |
-| `/bt` | Turns Best Tools on or off: switches to the best tool for what you're breaking (off by default) |
-| `/class` | Pick a class (you can change again after 5 minutes) |
-| Compass | Right-click a compass to open a menu of these commands (Java and Bedrock; operators sneak + right-click) |
+| `/chestsort` | Sorting settings: sort key, automatic sorting, quick transfer |
+| `/lumberjack` (`/lj`) | Whole-tree chopping on or off (on by default; sneak to chop one log) |
+| `/refill` (`/rf`) | Hotbar refill on or off: empty hotbar slots refill from your inventory (off by default) |
+| `/bt` | Best Tools on or off: switches to the best tool for what you're breaking (off by default) |
 
 ## Classes
 Type `/class` (or compass menu → **Pick a Class**) to pick one. One class at a time; it stays through logging out and dying. After picking, you wait **5 minutes** to change again (your first pick is free). Powers marked "charged hit" only work on a fully charged, direct melee hit.
