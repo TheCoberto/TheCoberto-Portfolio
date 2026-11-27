@@ -24,7 +24,7 @@ That's the whole kit. You start with **$0** and no armor or food, so earn your f
 
 ### Your First Day
 1. **Pick Peaceful or Fighter** when you first join. Not sure? Read [PvP: Peaceful or Fighter](#pvp-peaceful-or-fighter).
-2. **Pick a class** with `/class`. See [Classes](#classes).
+2. **Pick a class**: the class menu opens right after, or use `/class` later. See [Classes](#classes).
 3. **Find a spot** with `/tpr`, then **claim it** with a golden shovel. See [Land Claims](#land-claims).
 4. **Save it** with `/sethome base`. See [Homes](#homes).
 5. **Join a job** with `/jobs browse` and start earning. See [Jobs](#jobs).
@@ -84,7 +84,7 @@ Home of the server's top player.
 - `/spawn`: back to The Oasis.
 
 #### Homes
-`/sethome <name>` saves a spot, `/home <name>` takes you back, `/homes` lists them and `/delhome <name>` deletes one. You get 5 homes ([VIPs](#vip-perks) get 20).
+`/sethome <name>` saves a spot, `/home <name>` takes you back, `/homes` lists them and `/delhome <name>` deletes one. The compass menu's **Home** button (or `/homemenu`) opens a list of your homes: click one to go there. You get 5 homes ([VIPs](#vip-perks) get 20).
 
 #### Teleporting
 - **To a friend**: `/tpa <player>` asks to teleport to them. They answer with `/tpaccept` or `/tpdeny`.
@@ -303,7 +303,7 @@ After each swing, your weapon takes a moment to recharge (the little sword icon 
 You can be in a faction **and** a clan: the faction is the big picture, the clan is your crew. The Kingdom Board on [Discord](#discord) shows every faction and clan.
 
 #### Factions
-The three big powers of the kingdom, made and run by the server: 🔵 Azure Order, 🟢 Verdant Syndicate and 🔴 Crimson Dominion. You pick one in the faction menu, and each has its own [traits](#faction-traits). Faction wars, tournaments and events are run by the server.
+The three big powers of the kingdom, made and run by the server: 🔵 Azure Order, 🟢 Verdant Syndicate and 🔴 Crimson Dominion. Pick one in the faction menu (compass menu → **Factions**, or `/faction_select`) or by talking to a faction leader, and each has its own [traits](#faction-traits). Your first pick is free; after that, switching costs **$1000** and you wait **5 minutes** between changes. Faction changes may be locked during faction events. Faction wars, tournaments and events are run by the server.
 
 #### Faction Traits
 Each faction has small perks and one drawback. They follow your faction, so switching factions switches traits.
