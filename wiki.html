@@ -133,6 +133,43 @@
         .wiki-foot { text-align: center; font-family: 'VT323', monospace; font-size: 1.2rem; color: var(--gray); margin: 10px 0 30px; }
         .wiki-foot span { color: var(--gold); }
 
+
+        /* Chapter sub-menus, subtopics, search, back to top */
+        .subnav { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 14px; }
+        .subnav a {
+            font-family: 'VT323', monospace; font-size: 1.15rem; text-decoration: none; color: var(--yellow);
+            padding: 1px 9px; background: rgba(0,0,0,.45); border: 2px solid #000; box-shadow: inset 0 0 0 1px #4a4334;
+        }
+        .subnav a:hover { color: #fff; box-shadow: inset 0 0 0 1px var(--gold); }
+        .wiki section.pvp .subnav a { box-shadow: inset 0 0 0 1px #5a1a1a; }
+        .wiki h3 { scroll-margin-top: 12px; border-top: 2px dashed #3a342a; padding-top: 14px; }
+        .wiki h2 + .subnav + h3, .wiki h2 + h3 { border-top: 0; padding-top: 0; }
+        .wiki h4 { font-family: 'VT323', monospace; font-size: 1.35rem; color: var(--aqua); margin: 16px 0 4px; text-shadow: 2px 2px 0 #153f3f; scroll-margin-top: 12px; }
+        .wiki h4::before { content: '▸ '; color: var(--gold); }
+        .wiki :target { animation: flash 1.6s ease-out; }
+        @keyframes flash { from { background: rgba(255,170,0,.35); } to { background: transparent; } }
+        .search { position: relative; max-width: 520px; margin: 0 auto 14px; }
+        .search input {
+            width: 100%; box-sizing: border-box; font-family: 'VT323', monospace; font-size: 1.35rem; color: #fff;
+            background: #111; border: 3px solid #000; box-shadow: inset 0 0 0 2px #555; padding: 6px 12px;
+        }
+        .search input:focus { outline: none; box-shadow: inset 0 0 0 2px var(--gold); }
+        .results {
+            position: absolute; left: 0; right: 0; top: 100%; z-index: 5; max-height: 320px; overflow-y: auto;
+            background: #15130f; border: 3px solid #000; border-top: 0; display: none; text-align: left;
+        }
+        .results.open { display: block; }
+        .results a { display: block; padding: 6px 12px; color: var(--ink); text-decoration: none; font-family: 'Pixelify Sans', sans-serif; }
+        .results a small { color: var(--gray); font-family: 'VT323', monospace; font-size: 1.05rem; margin-left: 6px; }
+        .results a:hover, .results a.active { background: #3b2c10; color: var(--gold-hi); }
+        .results p { margin: 0; padding: 8px 12px; color: var(--gray); }
+        .to-top {
+            position: fixed; right: 16px; bottom: 16px; z-index: 6; font-family: 'Press Start 2P', monospace; font-size: .6rem;
+            color: #fff; text-decoration: none; padding: 10px 12px; background: #6f6f6f; border: 2px solid #000;
+            box-shadow: inset 2px 2px 0 #a9a9a9, inset -2px -2px 0 #4a4a4a; opacity: 0; pointer-events: none; transition: opacity .2s;
+        }
+        .to-top.show { opacity: 1; pointer-events: auto; }
+
         @media (max-width: 600px) {
             .container { padding: 24px 16px; }
             .wiki section { padding: 2px 14px 12px; }
@@ -150,7 +187,7 @@
         <a href="mods.html">Mods</a>
     </nav>
 
-<main class="container">
+<main class="container" id="top">
     <header class="hero">
         <svg class="crown" viewBox="0 0 16 12" aria-hidden="true" shape-rendering="crispEdges">
             <!-- pixel broken crown -->
@@ -173,8 +210,13 @@
         </div>
     </header>
 
-    <nav class="toc" id="toc" aria-label="Sections"></nav>
+    <div class="search">
+        <input id="q" type="search" placeholder="🔎 Search the wiki (herobrine, homes, slots...)" autocomplete="off" aria-label="Search the wiki">
+        <div class="results" id="results"></div>
+    </div>
+    <nav class="toc" id="toc" aria-label="Chapters"></nav>
     <article class="wiki" id="wiki"><p>Loading the wiki…</p></article>
+    <a class="to-top" id="toTop" href="#top">▲ TOP</a>
     <p class="wiki-foot">Long live the <span>Kingdom of Crobus</span>. Java &amp; Bedrock · One world.</p>
 </main>
 
@@ -183,22 +225,164 @@
     // The wiki text lives in wiki/crobus.md, copied from the server repo by publish-wiki.ps1.
     // Each ## heading becomes its own panel; combat sections get the red PvP look.
     const ICONS = {
-        'welcome': '👑', 'rules': '📜', 'joining': '🚪', 'locations': '🏰', 'getting-around': '🧭',
-        'land-claims': '🛡', 'money': '💰', 'pvp': '⚔', 'factions': '🚩', 'out-in-the-world': '🌲',
-        'mystical-slots': '🎰', 'parkour': '🏃', 'skeleton-variants': '💀', 'whispers': '👁',
-        'drinks': '🧪', 'handy-commands': '⌨', 'classes': '🗡', 'faction-traits': '⚜',
-        'graves': '🪦', 'discord': '💬', 'coming-soon': '⏳',
-        'vein-miner': '⛏', 'special-items': '✨', 'voice-chat': '🎙', 'faq': '❓',
-        'pets': '🐺', 'skins': '🎭', 'stats': '📊', 'vip': '💎'
+        'getting-started': '👑', 'places-and-travel': '🧭', 'land-and-protection': '🛡', 'money-and-items': '💰',
+        'games-and-fun': '🎰', 'combat': '⚔', 'dangers-of-the-wild': '👁', 'community-and-extras': '💬',
+        'handy-commands': '⌨', 'faq': '❓', 'coming-soon': '⏳'
     };
-    const PVP = ['pvp', 'factions', 'classes', 'faction-traits', 'skeleton-variants', 'whispers', 'graves'];
+    const PVP = ['combat', 'dangers-of-the-wild'];
     const pick = (id, map) => Object.keys(map).find(k => id.startsWith(k));
+    // Same rule as the links in wiki.md: lowercase, apostrophes dropped, other punctuation to dashes.
+    const slug = t => t.toLowerCase().replace(/['’]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    const esc = t => t.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
     document.getElementById('ip').addEventListener('click', () => {
         const note = document.getElementById('ipnote');
         navigator.clipboard?.writeText('crobus.minecraft.best')
             .then(() => { note.textContent = 'copied!'; setTimeout(() => note.textContent = 'click to copy', 1500); })
             .catch(() => {});
+    });
+
+    fetch('wiki/crobus.md', { cache: 'no-cache' })
+        .then(r => { if (!r.ok) throw new Error(r.status); return r.text(); })
+        .then(md => {
+            const wiki = document.getElementById('wiki');
+            wiki.innerHTML = marked.parse(md);
+
+            wiki.querySelectorAll('table').forEach(t => {
+                const wrap = document.createElement('div');
+                wrap.className = 'table-wrap';
+                t.replaceWith(wrap);
+                wrap.appendChild(t);
+            });
+
+            // Faction names in their Minecraft colors.
+            const walker = document.createTreeWalker(wiki, NodeFilter.SHOW_TEXT);
+            const hits = [];
+            while (walker.nextNode()) if (/Azure Order|Verdant Syndicate|Crimson Dominion|\bFighters?\b|\bPeaceful\b/.test(walker.currentNode.nodeValue)) hits.push(walker.currentNode);
+            hits.forEach(n => {
+                if (n.parentElement.closest('code')) return;
+                const span = document.createElement('span');
+                span.innerHTML = n.nodeValue.replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]))
+                    .replace(/Azure Order/g, '<span class="f-azure">Azure Order</span>')
+                    .replace(/Verdant Syndicate/g, '<span class="f-verdant">Verdant Syndicate</span>')
+                    .replace(/Crimson Dominion/g, '<span class="f-crimson">Crimson Dominion</span>')
+                    .replace(/\b(Fighters?)\b/g, '<span class="tag-fight">$1</span>')
+                    .replace(/\bPeaceful\b/g, '<span class="tag-peace">Peaceful</span>');
+                n.replaceWith(...span.childNodes);
+            });
+
+            // Numbers in a font where 2 and 5 look right (headings keep their pixel font).
+            const nw = document.createTreeWalker(wiki, NodeFilter.SHOW_TEXT);
+            const nums = [];
+            while (nw.nextNode()) if (/\d/.test(nw.currentNode.nodeValue)) nums.push(nw.currentNode);
+            nums.forEach(n => {
+                if (n.parentElement.closest('code, h1, h2')) return;
+                const frag = document.createDocumentFragment();
+                n.nodeValue.split(/(\d[\d,.]*)/).forEach((part, i) => {
+                    if (!part) return;
+                    if (i % 2) { const s = document.createElement('span'); s.className = 'num'; s.textContent = part; frag.appendChild(s); }
+                    else frag.appendChild(document.createTextNode(part));
+                });
+                n.replaceWith(frag);
+            });
+
+            // Every heading gets a linkable id, matching the links written in wiki.md.
+            const used = new Set();
+            wiki.querySelectorAll('h2, h3, h4').forEach(h => {
+                const base = slug(h.textContent);
+                let id = base, n = 2;
+                while (used.has(id)) id = base + '-' + n++;
+                used.add(id); h.id = id;
+            });
+
+            // Each ## chapter becomes a panel with a menu of its ### topics.
+            const toc = document.getElementById('toc');
+            const index = [];
+            [...wiki.querySelectorAll('h2')].forEach(h => {
+                const id = h.id;
+                h.removeAttribute('id');
+                const section = document.createElement('section');
+                section.id = id;
+                const isPvp = PVP.some(p => id.startsWith(p));
+                if (isPvp) section.classList.add('pvp');
+                h.before(section);
+                let next = h.nextSibling;
+                section.appendChild(h);
+                while (next && next.nodeName !== 'H2') { const n = next.nextSibling; section.appendChild(next); next = n; }
+
+                const icon = ICONS[pick(id, ICONS)] || '◆';
+                const title = h.textContent.trim();
+                const ico = document.createElement('span');
+                ico.className = 'ico'; ico.textContent = icon;
+                h.prepend(ico);
+
+                const topics = [...section.querySelectorAll('h3')];
+                if (topics.length > 1) {
+                    const sub = document.createElement('nav');
+                    sub.className = 'subnav';
+                    sub.setAttribute('aria-label', title + ' topics');
+                    topics.forEach(t => {
+                        const l = document.createElement('a');
+                        l.href = '#' + t.id; l.textContent = t.textContent;
+                        sub.appendChild(l);
+                    });
+                    h.after(sub);
+                }
+
+                const l = document.createElement('a');
+                l.href = '#' + id;
+                l.textContent = icon + ' ' + title;
+                if (isPvp) l.className = 'pvp';
+                toc.appendChild(l);
+
+                // Search index: the chapter, then each topic and subtopic with the text under it.
+                index.push({ id, title, where: '', text: section.textContent.toLowerCase() });
+                let topic = null;
+                section.querySelectorAll('h3, h4').forEach(x => {
+                    if (x.nodeName === 'H3') topic = x;
+                    let body = '', n = x.nextElementSibling;
+                    while (n && !/^H[2-4]$/.test(n.nodeName)) { body += ' ' + n.textContent; n = n.nextElementSibling; }
+                    const where = title + (x.nodeName === 'H4' && topic ? ' › ' + topic.textContent : '');
+                    index.push({ id: x.id, title: x.textContent, where, text: (x.textContent + body).toLowerCase() });
+                });
+            });
+
+            // Search box: every word must appear; title matches rank first.
+            const q = document.getElementById('q'), results = document.getElementById('results');
+            let active = -1;
+            const render = () => {
+                const words = q.value.toLowerCase().trim().split(/\s+/).filter(Boolean);
+                active = -1;
+                if (!words.length) { results.classList.remove('open'); results.innerHTML = ''; return; }
+                const hits = index
+                    .filter(e => words.every(w => e.text.includes(w)))
+                    .map(e => ({ e, score: words.filter(w => e.title.toLowerCase().includes(w)).length * 10 + (e.where ? e.where.split('›').length : 0) }))
+                    .sort((x, y) => y.score - x.score).slice(0, 12);
+                results.innerHTML = hits.length
+                    ? hits.map(({ e }) => `<a href="#${e.id}">${esc(e.title)}${e.where ? `<small>${esc(e.where)}</small>` : ''}</a>`).join('')
+                    : '<p>Nothing found. Try another word.</p>';
+                results.classList.add('open');
+            };
+            q.addEventListener('input', render);
+            q.addEventListener('keydown', ev => {
+                const links = [...results.querySelectorAll('a')];
+                if ((ev.key === 'ArrowDown' || ev.key === 'ArrowUp') && links.length) {
+                    ev.preventDefault();
+                    active = (active + (ev.key === 'ArrowDown' ? 1 : -1) + links.length) % links.length;
+                    links.forEach((x, i) => x.classList.toggle('active', i === active));
+                } else if (ev.key === 'Enter' && links.length) {
+                    (links[active] || links[0]).click();
+                } else if (ev.key === 'Escape') { q.value = ''; render(); }
+            });
+            results.addEventListener('click', ev => { if (ev.target.closest('a')) { results.classList.remove('open'); q.blur(); } });
+            document.addEventListener('click', ev => { if (!ev.target.closest('.search')) results.classList.remove('open'); });
+
+            const toTop = document.getElementById('toTop');
+            addEventListener('scroll', () => toTop.classList.toggle('show', scrollY > 600), { passive: true });
+
+            if (location.hash) document.getElementById(decodeURIComponent(location.hash.slice(1)))?.scrollIntoView();
+        })
+        .catch(() => {});
     });
 
     fetch('wiki/crobus.md', { cache: 'no-cache' })
