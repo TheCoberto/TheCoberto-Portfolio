@@ -52,12 +52,33 @@ Breaking the rules gets a temporary ban the first time and a permanent ban for r
 
 The heart of the server, where everyone starts.
 - **Mystical Slots**: Slot Machines with Low Risk ($100) and High Roller ($10,000) bets. See [Mystical Slots](#mystical-slots).
-- **Parkour**: the Puddle and Fred courses pay money when you finish. See [Parkour](#parkour).
+- **Parkour**: the Puddle, Deep End and Fred courses pay money when you finish. See [Parkour](#parkour).
 - **Beverage Stand**: the bartender sells Mugs ($100), Milk, Honey and Strength, and the fountain pours any drink into an empty Mug. See [Drinks](#drinks).
 - **Soda Machine**: Soda, Strong Soda and Extended Soda.
 - **Music Selector**: pay to queue a song for everyone nearby.
 - **XP Trader**: sell your XP levels for $10 each, up to 50 a day. See [XP Trader](#xp-trader).
-- **NPCs**: the Guide and the Welcoming Crew Member for new players, the Warps NPC, the Royal Guards, and the faction leaders (Azure, Verdant, Crimson).
+- **Community Chests**: shared chests anyone can open. Take what you need and leave spare items for other players. Please don't empty them or fill them with junk.
+- **NPCs**: see [NPCs at The Oasis](#npcs-at-the-oasis) below.
+
+#### NPCs at The Oasis
+Click an NPC to talk to it. Some open a menu.
+
+| NPC | What it does |
+|---|---|
+| **Guide** | Helps new players find their way. |
+| **Welcoming Crew Member** | Greets new players: "Hi! I hope you like reading!" |
+| **Notch** | Has retired to The Oasis. His advice: save up for PvP protection so you can claim land. |
+| **Warps** | Opens the [Warp Menu](#warps-and-spawn). |
+| **XP Trader** | Opens the [XP Trader](#xp-trader): sell XP levels for money. |
+| **Barkeep** and **Waiter** | Open the Beverage Stand menu. See [Drinks](#drinks). |
+| **Azure**, **Verdant**, **Crimson** | The faction leaders. Click one to see that faction and its members, or to join it. See [Factions](#factions). |
+| **Royal Guards** | Guard The Oasis. One points the way to the Treehouse Clan. |
+| **Judy** | Hangs out by the parkour and heckles your jumps. |
+| **Announcer** | At the [Practice Area](#practice-area): explains its keep-inventory rules. |
+| **Bo Billy** | An old friend from Jean's world. |
+| **Mr. Blub** | A swimmer you might spot around spawn. |
+| **Tarl** | The Oasis blacksmith. |
+| **Mooshroom**, **Treehouse**, **Vamps** | Statues for the old clans of the same names. |
 
 #### Practice Area
 `/warp practice`
@@ -70,10 +91,19 @@ A PvP arena for training. **Keep inventory and keep XP are on**, so you can figh
 Quick ways into the Nether and the End.
 
 #### Shroomlands
-The server owner's base.
+`/warp shroom`
 
-#### Treehouse
-The admin's base.
+Near the server owner's base.
+
+#### Treehouse Clan Base
+`/warp tree`
+
+Home of the Treehouse Clan, and the admin's base.
+
+#### Ice Bridge
+`/warp ice`
+
+A bridge of ice, and a [safe zone](#safe-zones): no PvP there.
 
 #### DDogg's Base
 Home of the server's top player.
@@ -81,7 +111,7 @@ Home of the server's top player.
 ### Getting Around
 
 #### Warps and Spawn
-- `/warp <name>`: the [Locations](#locations) above. The Warps NPC at The Oasis has them in a menu.
+- `/warp <name>`: the [Locations](#locations) above. The Warps NPC at The Oasis (or `/warpmenu`) opens the **Warp Menu**: Oasis, Nether, The End, Practice Area, Shroomlands, Ice Bridge and Treehouse Clan Base.
 - `/spawn`: back to The Oasis.
 
 #### Homes
@@ -249,10 +279,11 @@ Courses near The Oasis pay money when you reach the finish. Step on the start to
 | Course | Made by | Checkpoints | Prize | Difficulty |
 |---|---|---|---|---|
 | **Puddle** | DrCrobus | 2 | $250 | Easy: a good first course |
+| **Deep End** | DrCrobus | 1 | $2,500 | Medium: falling in the water sends you back |
 | **Fred** | Ducky | 1 | $4,500 | Hard: big prize, tricky jumps |
 
 #### Parkour Rules
-- **Prize cooldown**: you can win each course's prize once every **12 hours**. You can still run it as often as you like.
+- **Prize cooldown**: you can win each course's prize once every **hour**. You can still run it as often as you like.
 - **On a course**: no flying ([Flight Tokens](#special-items) don't work, and starting a course turns token flight off), most commands are blocked, and mobs can't hurt you.
 - `/pa leave` quits the course you're on.
 - Finishing a course is announced to everyone, with your time.
@@ -503,7 +534,8 @@ Right-click a **compass** to open a menu of the most-used commands (Java and Bed
 | Command | What it does |
 |---|---|
 | `/spawn` | Back to The Oasis |
-| `/warp <name>` | Go to a warp: `oasis`, `practice`, `nether`, `end` |
+| `/warp <name>` | Go to a warp: `oasis`, `practice`, `nether`, `end`, `shroom`, `ice`, `tree` |
+| `/warpmenu` | Open the Warp Menu |
 | `/sethome <name>`, `/home <name>` | Save a home, then go back to it |
 | `/homes`, `/delhome <name>` | List or delete your homes |
 | `/tpa <player>` | Ask to teleport to someone |
