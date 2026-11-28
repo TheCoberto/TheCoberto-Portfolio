@@ -165,6 +165,7 @@ Jobs pay you for normal play: mining, farming, chopping, hunting, fishing and mo
 - `/jobs stats` shows your levels, and `/jobs leave <job>` quits one.
 - Tip: stick to one or two jobs to level faster, then sell what you gather.
 - Reach Miner level 25 to unlock [Vein Miner](#vein-miner).
+- Reach Woodcutter level 20 to unlock [Lumberjack](#lumberjack).
 
 ### Shops and Trading
 
@@ -206,6 +207,13 @@ Reach **Miner level 25** in [Jobs](#jobs) and you unlock vein mining: break one 
 - Works with an **iron, gold, diamond or netherite pickaxe**, on every ore: coal, copper, iron, gold, redstone, lapis, diamond, emerald, Nether quartz, Nether gold and **ancient debris**.
 - **Sneak** while mining to break just one block.
 - Every block still costs durability, so bring a pickaxe with Unbreaking or Mending. Fortune and Silk Touch apply to the whole vein.
+
+### Lumberjack
+Reach **Woodcutter level 20** in [Jobs](#jobs) and you unlock Lumberjack: chop one log of a natural tree with an axe and the **whole tree** comes down. You'll get a message when it unlocks, and you keep it even if you leave the job.
+- It's on as soon as you unlock it. `/lumberjack` (`/lj`) turns it on or off.
+- **Sneak** while chopping to break just one log.
+- Every log costs durability, and it stops before your axe breaks.
+- Logs players placed never chain, so log builds are safe. Claims are respected.
 
 ### Special Items
 | Item | Where to get it | What it does |
@@ -575,7 +583,7 @@ Right-click a **compass** to open a menu of the most-used commands (Java and Bed
 | `/unload` | Puts items into nearby chests that already hold them |
 | `/dump` | Empties your inventory (not hotbar or armor) into nearby chests |
 | `/chestsort` | Sorting settings: sort key, automatic sorting, quick transfer |
-| `/lumberjack` (`/lj`) | Whole-tree chopping on or off (on by default; sneak to chop one log) |
+| `/lumberjack` (`/lj`) | Whole-tree chopping on or off, once unlocked at Woodcutter level 20 (sneak to chop one log). See [Lumberjack](#lumberjack) |
 | `/refill` (`/rf`) | Hotbar refill on or off: empty hotbar slots refill from your inventory (off by default) |
 | `/veinminer` (`/vm`) | [Vein mining](#vein-miner) on or off (unlocks at Miner level 25) |
 | `/bt` | Best Tools on or off: switches to the best tool for what you're breaking (off by default) |
