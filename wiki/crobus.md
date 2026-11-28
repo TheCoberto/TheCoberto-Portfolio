@@ -444,7 +444,7 @@ The Shifter's hiding form: it looks exactly like an ordinary mob.
 - **What to do:** a mob that stares and never attacks is the giveaway. Back away and leave it alone: a disguise that nobody bothers disappears after about 3 minutes.
 
 #### The Shifter
-- **What you'll see:** a tall dark figure that appears where a [Disguised Shifter](#disguised-shifter) or [Shifted Player](#shifted-players) stood. It may stalk you from a distance, chase you down, or sniff you out.
+- **What you'll see:** a tall dark figure that appears where a [Disguised Shifter](#disguised-shifter) or [Shifted Player](#shifted-players) stood. It may stalk you from a distance, chase you down, or sniff you out. Sometimes it shows up on its own, far away, standing still and watching you: walk toward it and it's gone... usually.
 - **Danger: yes.** 250 hearts, its hits weaken you, and it blinds everyone nearby when it vanishes.
 - **What to do:** run, or fight it with a group and good gear. Sneaking can help.
 
