@@ -394,6 +394,7 @@ When you die, your items go into a **grave** where you died instead of spilling 
 - **Prank Buttons** are out in the wild. Push one at your own risk. They can't be broken or taken.
 - **Skeletons** aren't always just skeletons. See [Skeleton Variants](#skeleton-variants).
 - **Something watches you in the dark.** See [Whispers of the Void](#whispers-of-the-void).
+- **Some nights, so does the moon.** See [The Moon](#the-moon).
 - **Bosses**: very rarely, a creeper or skeleton in the overworld turns out to be the **Mutant Creeper** or the **Skeleton King**. See [Bosses](#bosses).
 
 ### Skeleton Variants
@@ -482,6 +483,13 @@ Very rarely (about 1 in 1,000), a creeper or skeleton spawning in the overworld 
 | **Skeleton King** | 250 | Shoots, slams anyone within 5 blocks, summons skeletons, enraged below half health | **Skeleton King's Crown** (enchanted), enchanted bow, bones, gold, lots of XP |
 
 > Bring friends. Fight the Mutant Creeper away from your base: its blasts break blocks.
+
+#### The Moon
+Some nights the moon looks... different. It's random (most nights it's just the moon) and it's gone by sunrise.
+
+- You need the **server resource pack** (accept it when you join).
+- **Bedrock:** if it starts while you're online, rejoin to see it.
+- Shaders can hide it.
 
 ## Community and Extras
 
